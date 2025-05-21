@@ -40,13 +40,12 @@ Future<void> initChatBotConfig({
   await Preferences.ensureInitedPreferences();
 }
 
-const String _hiveCached = "hiveCached";
-
 Future<void> initHiveBoxes() async {
+  await Hive.initFlutter();
+
   Hive.registerAdapter(ChatModelAdapter());
   Hive.registerAdapter(ConversationModelAdapter());
 
-  await Hive.openBox<dynamic>(_hiveCached);
   await Hive.openBox<ChatModel>(HiveConstant.chatBox);
   await Hive.openBox<ConversationModel>(HiveConstant.conversationBox);
 }
