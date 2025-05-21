@@ -114,20 +114,20 @@ class _MessageItemState extends State<MessageItem> {
                                   (widget.streamTextResponse != null)) ...[
                                 Text(widget.streamTextResponse ?? "",
                                     style: style),
-                              ],
-                              Markdown(
-                                selectable: true,
-                                shrinkWrap: true,
-                                padding: EdgeInsets.zero,
-                                data: widget.content,
-                                onTapLink: (text, href, title) {
-                                  // ignore: deprecated_member_use
-                                  href != null ? launch(href) : null;
-                                },
-                                styleSheet: MarkdownStyleSheet.fromTheme(
-                                        Theme.of(context))
-                                    .copyWith(p: style),
-                              ),
+                              ] else
+                                Markdown(
+                                  selectable: true,
+                                  shrinkWrap: true,
+                                  padding: EdgeInsets.zero,
+                                  data: widget.content,
+                                  onTapLink: (text, href, title) {
+                                    // ignore: deprecated_member_use
+                                    href != null ? launch(href) : null;
+                                  },
+                                  styleSheet: MarkdownStyleSheet.fromTheme(
+                                          Theme.of(context))
+                                      .copyWith(p: style),
+                                ),
                             ],
                           )
                         : Text(widget.content, style: style),

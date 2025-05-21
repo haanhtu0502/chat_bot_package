@@ -19,7 +19,6 @@ class _StreamExampleState extends State<StreamExample> with StreamMixin {
   void initState() {
     super.initState();
     _streamApiService = StreamApiService<String>(
-      streamMixin: this,
       url: "/threads/thread_id/runs",
       queryParameters: {
         "stream": true,

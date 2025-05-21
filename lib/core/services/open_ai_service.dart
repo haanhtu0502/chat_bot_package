@@ -3,7 +3,6 @@ import 'package:chat_bot_package/clean_architectures/domain/entities/chat/chat_t
 import 'package:chat_bot_package/core/components/configurations/configurations.dart';
 import 'package:chat_bot_package/core/dependency_injection/di.dart';
 import 'package:chat_bot_package/core/services/stream/stream_api_service.dart';
-import 'package:chat_bot_package/core/services/stream/stream_mixin.dart';
 import 'package:flutter/widgets.dart';
 
 import '../../clean_architectures/data/data_source/remote/utils/data_state.dart';
@@ -60,7 +59,7 @@ class ChatBotUiData {
 
 /// A mixin to integrate OpenAI Assistant streaming message service into a `StatefulWidget`.
 /// Handles message sending, response streaming, and loading state management.
-mixin OpenAiService<T extends StatefulWidget> on State<T>, StreamMixin<T> {
+mixin OpenAiService<T extends StatefulWidget> on State<T> {
   /// The thread ID used to maintain conversation context.
   String get threadId;
 
@@ -84,16 +83,14 @@ mixin OpenAiService<T extends StatefulWidget> on State<T>, StreamMixin<T> {
 
   /// Called when new data is received from the stream.
   /// Updates the UI with incoming content and turns off the loading state.
-  @override
-  void onListenDataChange(data) {
+  void _onListenDataChange(data) {
     _chatBotData.value = _chatBotData.value.copyWith(
       responseText: _chatBotData.value.responseText + data,
       isLoading: false,
     );
   }
 
-  @override
-  void onDone() async {
+  void _onDone() async {
     final getLastMessageQueries = <String, dynamic>{"limit": 1};
     final response =
         await _gptApi.threadMessages(threadId, getLastMessageQueries);
@@ -115,7 +112,8 @@ mixin OpenAiService<T extends StatefulWidget> on State<T>, StreamMixin<T> {
     _streamApiService = StreamApiService<String>(
       url: "/threads/$threadId/runs",
       eventGet: 'delta',
-      streamMixin: this,
+      onListenDataChange: _onListenDataChange,
+      onDone: _onDone,
       configDio: ConfigDio(
         baseUrl: Configurations.baseUrl,
         headers: {

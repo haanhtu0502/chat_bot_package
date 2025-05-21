@@ -26,8 +26,10 @@ class StreamApiService<T> {
   final ConfigDio? configDio;
   final T Function(Map<String, dynamic>) mappingData;
 
+  final Function(T)? onListenDataChange;
+  final Function()? onDone;
+
   late final BaseApi _api;
-  late final StreamMixin? _streamMixin;
   late final String _baseUrl;
 
   StreamSubscription<List<T>?>? _subscription;
@@ -35,15 +37,14 @@ class StreamApiService<T> {
   /// Constructor to initialize the stream API service.
   /// Configures Dio client and sets up dependencies.
   StreamApiService({
-    StreamMixin? streamMixin,
+    this.onListenDataChange,
+    this.onDone,
     required this.url,
     required this.eventGet,
     required this.mappingData,
     this.queryParameters,
     this.configDio,
   }) {
-    _streamMixin = streamMixin;
-
     var dio = injector.isRegistered<Dio>() ? injector.get<Dio>() : Dio();
 
     if (configDio != null) {
@@ -101,7 +102,7 @@ class StreamApiService<T> {
       (streamResponse) {
         if (streamResponse?.isNotEmpty ?? false) {
           for (var element in streamResponse!) {
-            _streamMixin?.onListenDataChange(element);
+            onListenDataChange?.call(element);
           }
         }
       },
@@ -113,6 +114,6 @@ class StreamApiService<T> {
   void _cancelStream(dynamic error) {
     _subscription?.cancel();
     _subscription = null;
-    _streamMixin?.onDone();
+    onDone?.call();
   }
 }

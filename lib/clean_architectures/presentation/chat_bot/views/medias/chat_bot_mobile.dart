@@ -57,8 +57,7 @@ class ChatBotMobile extends StatefulWidget {
   State<ChatBotMobile> createState() => _ChatBotMobileState();
 }
 
-class _ChatBotMobileState extends State<ChatBotMobile>
-    with StreamMixin, OpenAiService {
+class _ChatBotMobileState extends State<ChatBotMobile> with OpenAiService {
   final ValueNotifier<bool> _enableSendButton = ValueNotifier(false);
   ChatBloc get _bloc => context.read<ChatBloc>();
 
@@ -208,9 +207,7 @@ class _ChatBotMobileState extends State<ChatBotMobile>
                             onTap: () {
                               _scaffoldKey.currentState?.openEndDrawer();
                             },
-                            child: const Icon(
-                              Icons.menu,
-                            ),
+                            child: const Icon(Icons.menu),
                           )
                         : const SizedBox(),
                   ],
