@@ -44,4 +44,9 @@ class ChatEvent with _$ChatEvent {
   const factory ChatEvent.listeningCompletedEvent() = _ListeningCompletedEvent;
 
   const factory ChatEvent.updateText(String newText) = _UpdateText;
+
+  const factory ChatEvent.addEmptyChat(String message) = _AddEmptyChat;
+
+  const factory ChatEvent.updateChatByNewText(
+      String newContent, String chatId) = _UpdateChatByNewText;
 }

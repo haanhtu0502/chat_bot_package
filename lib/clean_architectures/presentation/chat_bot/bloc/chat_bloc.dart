@@ -45,6 +45,8 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
     on<_ChangeTextAnimation>(_onChangeTextAnimation);
     on<_UpdateText>(_onUpdateText);
     on<_ClearConversation>(_onClearConversation);
+    on<_AddEmptyChat>(_onAddEmptyChat);
+    on<_UpdateChatByNewText>(_onUpdateChatByNewText);
   }
   ChatModalState get data => state.data;
 
@@ -280,5 +282,56 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
             chats: [...data.chats.sublist(0, data.chats.length - 1), right]),
       )),
     );
+  }
+
+  //Function support for StreamService
+  FutureOr<void> _onAddEmptyChat(
+      _AddEmptyChat event, Emitter<ChatState> emit) async {
+    final sendMessage = Chat(
+      id: 0.toString(),
+      conversationId: data.conversation!.id.toString(),
+      title: event.message,
+      createdAt: DateTime.now(),
+      chatStatus: ChatStatus.success,
+      chatType: ChatType.user,
+    );
+
+    final saveSendMessage =
+        await _chatUseCase.saveChat(data.conversation!.id, sendMessage);
+    if (saveSendMessage.isLeft) {
+      return emit(_SendChatFailed(
+          data: data, message: "Save message ${saveSendMessage.left.message}"));
+    }
+    final loadingMessage = Chat(
+      id: 0.toString(),
+      conversationId: data.conversation!.id.toString(),
+      title: "",
+      createdAt: DateTime.now(),
+      chatStatus: ChatStatus.loading,
+      chatType: ChatType.assistant,
+    );
+    emit(
+      _AddEmptyChatState(
+        data: data.copyWith(chats: [
+          ...data.chats,
+          sendMessage.copyWith(id: saveSendMessage.right.toString()),
+          loadingMessage,
+        ]),
+        message: event.message,
+      ),
+    );
+  }
+
+  FutureOr<void> _onUpdateChatByNewText(
+      _UpdateChatByNewText event, Emitter<ChatState> emit) async {
+    final newChat = [
+      ...data.chats.sublist(0, data.chats.length - 1),
+      data.chats.last.copyWith(
+          title: event.newContent,
+          chatStatus: ChatStatus.success,
+          id: event.chatId),
+    ];
+    await _chatUseCase.saveChat(data.conversation!.id, newChat.last);
+    emit(_UpdateChatByNewTextState(data: data.copyWith(chats: newChat)));
   }
 }

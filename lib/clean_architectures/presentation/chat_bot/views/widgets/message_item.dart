@@ -4,12 +4,9 @@ import 'package:chat_bot_package/core/components/extensions/string_extensions.da
 import 'package:chat_bot_package/core/design_systems/theme_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
-import 'package:markdown/markdown.dart' as md;
 import 'package:chat_bot_package/core/components/constant/image_const.dart';
 import 'package:chat_bot_package/core/components/extensions/context_extensions.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-import 'youtube_display.dart';
 
 class MessageItem extends StatefulWidget {
   final bool isBot;
@@ -18,13 +15,19 @@ class MessageItem extends StatefulWidget {
   final bool loading;
   final bool isErrorMessage;
   final bool isSpeechText;
+  final bool isAnimatedText;
+  final bool isWebPlatform;
   final Function() longPressText;
   final Function() speechOnPress;
   final Function() textAnimationCompleted;
-  final bool isAnimatedText;
-  final bool isWebPlatform;
+
+  final String? streamTextResponse;
+  final bool? isStreamWorking;
+
   const MessageItem({
     super.key,
+    this.streamTextResponse,
+    this.isStreamWorking,
     this.isWebPlatform = false,
     this.isErrorMessage = false,
     this.isSpeechText = false,
@@ -55,7 +58,6 @@ class _MessageItemState extends State<MessageItem> {
           voicCall: widget.speechOnPress,
           isLoading: widget.loading);
     }
-    final youtubeLink = widget.content.extractYouTubeLink();
     var content = [
       Flexible(
         flex: 10,
@@ -108,13 +110,17 @@ class _MessageItemState extends State<MessageItem> {
                     : widget.isBot
                         ? Column(
                             children: [
+                              if ((widget.isStreamWorking ?? false) &&
+                                  (widget.streamTextResponse != null)) ...[
+                                Text(widget.streamTextResponse ?? "",
+                                    style: style),
+                              ],
                               Markdown(
                                 selectable: true,
                                 shrinkWrap: true,
                                 padding: EdgeInsets.zero,
                                 data: widget.content,
                                 onTapLink: (text, href, title) {
-                                  //Open link
                                   // ignore: deprecated_member_use
                                   href != null ? launch(href) : null;
                                 },
@@ -122,10 +128,6 @@ class _MessageItemState extends State<MessageItem> {
                                         Theme.of(context))
                                     .copyWith(p: style),
                               ),
-                              // if (youtubeLink?.isNotEmpty ?? false) ...[
-                              //   const SizedBox(height: 12.0),
-                              //   YoutubeDisplay(url: youtubeLink!),
-                              // ]
                             ],
                           )
                         : Text(widget.content, style: style),

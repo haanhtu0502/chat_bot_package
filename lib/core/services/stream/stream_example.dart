@@ -10,8 +10,7 @@ class StreamExample extends StatefulWidget {
   State<StreamExample> createState() => _StreamExampleState();
 }
 
-class _StreamExampleState extends State<StreamExample>
-    with StreamMixin<String> {
+class _StreamExampleState extends State<StreamExample> with StreamMixin {
   late final StreamApiService<String> _streamApiService;
 
   final ValueNotifier<String> _textResposne = ValueNotifier<String>("");
@@ -85,7 +84,7 @@ class _StreamExampleState extends State<StreamExample>
   }
 
   @override
-  void onListenDataChange(String data) {
+  void onListenDataChange(dynamic data) {
     // Handle the data received from the stream
     // For example, you can update the UI or perform some action with the data
     _textResposne.value += data;

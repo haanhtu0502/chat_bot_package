@@ -64,6 +64,13 @@ class ChatState with _$ChatState {
     required String textResponse,
   }) = _UpdateTextSuccess;
 
+  const factory ChatState.addEmptyChatState(
+      {required ChatModalState data,
+      required String message}) = _AddEmptyChatState;
+
+  const factory ChatState.updateChatByNewTextState(
+      {required ChatModalState data}) = _UpdateChatByNewTextState;
+
   bool get loading => this is _Loading;
 
   bool get loadingSend => this is _LoadingSend;

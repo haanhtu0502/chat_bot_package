@@ -36,6 +36,9 @@ mixin _$ChatEvent {
     required TResult Function() stopListenSpeech,
     required TResult Function() listeningCompletedEvent,
     required TResult Function(String newText) updateText,
+    required TResult Function(String message) addEmptyChat,
+    required TResult Function(String newContent, String chatId)
+        updateChatByNewText,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +60,8 @@ mixin _$ChatEvent {
     TResult? Function()? stopListenSpeech,
     TResult? Function()? listeningCompletedEvent,
     TResult? Function(String newText)? updateText,
+    TResult? Function(String message)? addEmptyChat,
+    TResult? Function(String newContent, String chatId)? updateChatByNewText,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -78,6 +83,8 @@ mixin _$ChatEvent {
     TResult Function()? stopListenSpeech,
     TResult Function()? listeningCompletedEvent,
     TResult Function(String newText)? updateText,
+    TResult Function(String message)? addEmptyChat,
+    TResult Function(String newContent, String chatId)? updateChatByNewText,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -101,6 +108,8 @@ mixin _$ChatEvent {
     required TResult Function(_ListeningCompletedEvent value)
         listeningCompletedEvent,
     required TResult Function(_UpdateText value) updateText,
+    required TResult Function(_AddEmptyChat value) addEmptyChat,
+    required TResult Function(_UpdateChatByNewText value) updateChatByNewText,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -122,6 +131,8 @@ mixin _$ChatEvent {
     TResult? Function(_StopListenSpeech value)? stopListenSpeech,
     TResult? Function(_ListeningCompletedEvent value)? listeningCompletedEvent,
     TResult? Function(_UpdateText value)? updateText,
+    TResult? Function(_AddEmptyChat value)? addEmptyChat,
+    TResult? Function(_UpdateChatByNewText value)? updateChatByNewText,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -143,6 +154,8 @@ mixin _$ChatEvent {
     TResult Function(_StopListenSpeech value)? stopListenSpeech,
     TResult Function(_ListeningCompletedEvent value)? listeningCompletedEvent,
     TResult Function(_UpdateText value)? updateText,
+    TResult Function(_AddEmptyChat value)? addEmptyChat,
+    TResult Function(_UpdateChatByNewText value)? updateChatByNewText,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -221,6 +234,9 @@ class _$StartedImpl implements _Started {
     required TResult Function() stopListenSpeech,
     required TResult Function() listeningCompletedEvent,
     required TResult Function(String newText) updateText,
+    required TResult Function(String message) addEmptyChat,
+    required TResult Function(String newContent, String chatId)
+        updateChatByNewText,
   }) {
     return started();
   }
@@ -245,6 +261,8 @@ class _$StartedImpl implements _Started {
     TResult? Function()? stopListenSpeech,
     TResult? Function()? listeningCompletedEvent,
     TResult? Function(String newText)? updateText,
+    TResult? Function(String message)? addEmptyChat,
+    TResult? Function(String newContent, String chatId)? updateChatByNewText,
   }) {
     return started?.call();
   }
@@ -269,6 +287,8 @@ class _$StartedImpl implements _Started {
     TResult Function()? stopListenSpeech,
     TResult Function()? listeningCompletedEvent,
     TResult Function(String newText)? updateText,
+    TResult Function(String message)? addEmptyChat,
+    TResult Function(String newContent, String chatId)? updateChatByNewText,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -298,6 +318,8 @@ class _$StartedImpl implements _Started {
     required TResult Function(_ListeningCompletedEvent value)
         listeningCompletedEvent,
     required TResult Function(_UpdateText value) updateText,
+    required TResult Function(_AddEmptyChat value) addEmptyChat,
+    required TResult Function(_UpdateChatByNewText value) updateChatByNewText,
   }) {
     return started(this);
   }
@@ -322,6 +344,8 @@ class _$StartedImpl implements _Started {
     TResult? Function(_StopListenSpeech value)? stopListenSpeech,
     TResult? Function(_ListeningCompletedEvent value)? listeningCompletedEvent,
     TResult? Function(_UpdateText value)? updateText,
+    TResult? Function(_AddEmptyChat value)? addEmptyChat,
+    TResult? Function(_UpdateChatByNewText value)? updateChatByNewText,
   }) {
     return started?.call(this);
   }
@@ -346,6 +370,8 @@ class _$StartedImpl implements _Started {
     TResult Function(_StopListenSpeech value)? stopListenSpeech,
     TResult Function(_ListeningCompletedEvent value)? listeningCompletedEvent,
     TResult Function(_UpdateText value)? updateText,
+    TResult Function(_AddEmptyChat value)? addEmptyChat,
+    TResult Function(_UpdateChatByNewText value)? updateChatByNewText,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -415,6 +441,9 @@ class _$GetChatImpl implements _GetChat {
     required TResult Function() stopListenSpeech,
     required TResult Function() listeningCompletedEvent,
     required TResult Function(String newText) updateText,
+    required TResult Function(String message) addEmptyChat,
+    required TResult Function(String newContent, String chatId)
+        updateChatByNewText,
   }) {
     return getChat();
   }
@@ -439,6 +468,8 @@ class _$GetChatImpl implements _GetChat {
     TResult? Function()? stopListenSpeech,
     TResult? Function()? listeningCompletedEvent,
     TResult? Function(String newText)? updateText,
+    TResult? Function(String message)? addEmptyChat,
+    TResult? Function(String newContent, String chatId)? updateChatByNewText,
   }) {
     return getChat?.call();
   }
@@ -463,6 +494,8 @@ class _$GetChatImpl implements _GetChat {
     TResult Function()? stopListenSpeech,
     TResult Function()? listeningCompletedEvent,
     TResult Function(String newText)? updateText,
+    TResult Function(String message)? addEmptyChat,
+    TResult Function(String newContent, String chatId)? updateChatByNewText,
     required TResult orElse(),
   }) {
     if (getChat != null) {
@@ -492,6 +525,8 @@ class _$GetChatImpl implements _GetChat {
     required TResult Function(_ListeningCompletedEvent value)
         listeningCompletedEvent,
     required TResult Function(_UpdateText value) updateText,
+    required TResult Function(_AddEmptyChat value) addEmptyChat,
+    required TResult Function(_UpdateChatByNewText value) updateChatByNewText,
   }) {
     return getChat(this);
   }
@@ -516,6 +551,8 @@ class _$GetChatImpl implements _GetChat {
     TResult? Function(_StopListenSpeech value)? stopListenSpeech,
     TResult? Function(_ListeningCompletedEvent value)? listeningCompletedEvent,
     TResult? Function(_UpdateText value)? updateText,
+    TResult? Function(_AddEmptyChat value)? addEmptyChat,
+    TResult? Function(_UpdateChatByNewText value)? updateChatByNewText,
   }) {
     return getChat?.call(this);
   }
@@ -540,6 +577,8 @@ class _$GetChatImpl implements _GetChat {
     TResult Function(_StopListenSpeech value)? stopListenSpeech,
     TResult Function(_ListeningCompletedEvent value)? listeningCompletedEvent,
     TResult Function(_UpdateText value)? updateText,
+    TResult Function(_AddEmptyChat value)? addEmptyChat,
+    TResult Function(_UpdateChatByNewText value)? updateChatByNewText,
     required TResult orElse(),
   }) {
     if (getChat != null) {
@@ -637,6 +676,9 @@ class _$ChangeTextAnimationImpl implements _ChangeTextAnimation {
     required TResult Function() stopListenSpeech,
     required TResult Function() listeningCompletedEvent,
     required TResult Function(String newText) updateText,
+    required TResult Function(String message) addEmptyChat,
+    required TResult Function(String newContent, String chatId)
+        updateChatByNewText,
   }) {
     return changeTextAnimation(animationPlay);
   }
@@ -661,6 +703,8 @@ class _$ChangeTextAnimationImpl implements _ChangeTextAnimation {
     TResult? Function()? stopListenSpeech,
     TResult? Function()? listeningCompletedEvent,
     TResult? Function(String newText)? updateText,
+    TResult? Function(String message)? addEmptyChat,
+    TResult? Function(String newContent, String chatId)? updateChatByNewText,
   }) {
     return changeTextAnimation?.call(animationPlay);
   }
@@ -685,6 +729,8 @@ class _$ChangeTextAnimationImpl implements _ChangeTextAnimation {
     TResult Function()? stopListenSpeech,
     TResult Function()? listeningCompletedEvent,
     TResult Function(String newText)? updateText,
+    TResult Function(String message)? addEmptyChat,
+    TResult Function(String newContent, String chatId)? updateChatByNewText,
     required TResult orElse(),
   }) {
     if (changeTextAnimation != null) {
@@ -714,6 +760,8 @@ class _$ChangeTextAnimationImpl implements _ChangeTextAnimation {
     required TResult Function(_ListeningCompletedEvent value)
         listeningCompletedEvent,
     required TResult Function(_UpdateText value) updateText,
+    required TResult Function(_AddEmptyChat value) addEmptyChat,
+    required TResult Function(_UpdateChatByNewText value) updateChatByNewText,
   }) {
     return changeTextAnimation(this);
   }
@@ -738,6 +786,8 @@ class _$ChangeTextAnimationImpl implements _ChangeTextAnimation {
     TResult? Function(_StopListenSpeech value)? stopListenSpeech,
     TResult? Function(_ListeningCompletedEvent value)? listeningCompletedEvent,
     TResult? Function(_UpdateText value)? updateText,
+    TResult? Function(_AddEmptyChat value)? addEmptyChat,
+    TResult? Function(_UpdateChatByNewText value)? updateChatByNewText,
   }) {
     return changeTextAnimation?.call(this);
   }
@@ -762,6 +812,8 @@ class _$ChangeTextAnimationImpl implements _ChangeTextAnimation {
     TResult Function(_StopListenSpeech value)? stopListenSpeech,
     TResult Function(_ListeningCompletedEvent value)? listeningCompletedEvent,
     TResult Function(_UpdateText value)? updateText,
+    TResult Function(_AddEmptyChat value)? addEmptyChat,
+    TResult Function(_UpdateChatByNewText value)? updateChatByNewText,
     required TResult orElse(),
   }) {
     if (changeTextAnimation != null) {
@@ -863,6 +915,9 @@ class _$SendChatImpl implements _SendChat {
     required TResult Function() stopListenSpeech,
     required TResult Function() listeningCompletedEvent,
     required TResult Function(String newText) updateText,
+    required TResult Function(String message) addEmptyChat,
+    required TResult Function(String newContent, String chatId)
+        updateChatByNewText,
   }) {
     return sendChat(content);
   }
@@ -887,6 +942,8 @@ class _$SendChatImpl implements _SendChat {
     TResult? Function()? stopListenSpeech,
     TResult? Function()? listeningCompletedEvent,
     TResult? Function(String newText)? updateText,
+    TResult? Function(String message)? addEmptyChat,
+    TResult? Function(String newContent, String chatId)? updateChatByNewText,
   }) {
     return sendChat?.call(content);
   }
@@ -911,6 +968,8 @@ class _$SendChatImpl implements _SendChat {
     TResult Function()? stopListenSpeech,
     TResult Function()? listeningCompletedEvent,
     TResult Function(String newText)? updateText,
+    TResult Function(String message)? addEmptyChat,
+    TResult Function(String newContent, String chatId)? updateChatByNewText,
     required TResult orElse(),
   }) {
     if (sendChat != null) {
@@ -940,6 +999,8 @@ class _$SendChatImpl implements _SendChat {
     required TResult Function(_ListeningCompletedEvent value)
         listeningCompletedEvent,
     required TResult Function(_UpdateText value) updateText,
+    required TResult Function(_AddEmptyChat value) addEmptyChat,
+    required TResult Function(_UpdateChatByNewText value) updateChatByNewText,
   }) {
     return sendChat(this);
   }
@@ -964,6 +1025,8 @@ class _$SendChatImpl implements _SendChat {
     TResult? Function(_StopListenSpeech value)? stopListenSpeech,
     TResult? Function(_ListeningCompletedEvent value)? listeningCompletedEvent,
     TResult? Function(_UpdateText value)? updateText,
+    TResult? Function(_AddEmptyChat value)? addEmptyChat,
+    TResult? Function(_UpdateChatByNewText value)? updateChatByNewText,
   }) {
     return sendChat?.call(this);
   }
@@ -988,6 +1051,8 @@ class _$SendChatImpl implements _SendChat {
     TResult Function(_StopListenSpeech value)? stopListenSpeech,
     TResult Function(_ListeningCompletedEvent value)? listeningCompletedEvent,
     TResult Function(_UpdateText value)? updateText,
+    TResult Function(_AddEmptyChat value)? addEmptyChat,
+    TResult Function(_UpdateChatByNewText value)? updateChatByNewText,
     required TResult orElse(),
   }) {
     if (sendChat != null) {
@@ -1090,6 +1155,9 @@ class _$GetConversationImpl implements _GetConversation {
     required TResult Function() stopListenSpeech,
     required TResult Function() listeningCompletedEvent,
     required TResult Function(String newText) updateText,
+    required TResult Function(String message) addEmptyChat,
+    required TResult Function(String newContent, String chatId)
+        updateChatByNewText,
   }) {
     return getConversation(conversationId);
   }
@@ -1114,6 +1182,8 @@ class _$GetConversationImpl implements _GetConversation {
     TResult? Function()? stopListenSpeech,
     TResult? Function()? listeningCompletedEvent,
     TResult? Function(String newText)? updateText,
+    TResult? Function(String message)? addEmptyChat,
+    TResult? Function(String newContent, String chatId)? updateChatByNewText,
   }) {
     return getConversation?.call(conversationId);
   }
@@ -1138,6 +1208,8 @@ class _$GetConversationImpl implements _GetConversation {
     TResult Function()? stopListenSpeech,
     TResult Function()? listeningCompletedEvent,
     TResult Function(String newText)? updateText,
+    TResult Function(String message)? addEmptyChat,
+    TResult Function(String newContent, String chatId)? updateChatByNewText,
     required TResult orElse(),
   }) {
     if (getConversation != null) {
@@ -1167,6 +1239,8 @@ class _$GetConversationImpl implements _GetConversation {
     required TResult Function(_ListeningCompletedEvent value)
         listeningCompletedEvent,
     required TResult Function(_UpdateText value) updateText,
+    required TResult Function(_AddEmptyChat value) addEmptyChat,
+    required TResult Function(_UpdateChatByNewText value) updateChatByNewText,
   }) {
     return getConversation(this);
   }
@@ -1191,6 +1265,8 @@ class _$GetConversationImpl implements _GetConversation {
     TResult? Function(_StopListenSpeech value)? stopListenSpeech,
     TResult? Function(_ListeningCompletedEvent value)? listeningCompletedEvent,
     TResult? Function(_UpdateText value)? updateText,
+    TResult? Function(_AddEmptyChat value)? addEmptyChat,
+    TResult? Function(_UpdateChatByNewText value)? updateChatByNewText,
   }) {
     return getConversation?.call(this);
   }
@@ -1215,6 +1291,8 @@ class _$GetConversationImpl implements _GetConversation {
     TResult Function(_StopListenSpeech value)? stopListenSpeech,
     TResult Function(_ListeningCompletedEvent value)? listeningCompletedEvent,
     TResult Function(_UpdateText value)? updateText,
+    TResult Function(_AddEmptyChat value)? addEmptyChat,
+    TResult Function(_UpdateChatByNewText value)? updateChatByNewText,
     required TResult orElse(),
   }) {
     if (getConversation != null) {
@@ -1290,6 +1368,9 @@ class _$ClearConversationImpl implements _ClearConversation {
     required TResult Function() stopListenSpeech,
     required TResult Function() listeningCompletedEvent,
     required TResult Function(String newText) updateText,
+    required TResult Function(String message) addEmptyChat,
+    required TResult Function(String newContent, String chatId)
+        updateChatByNewText,
   }) {
     return clearConversation();
   }
@@ -1314,6 +1395,8 @@ class _$ClearConversationImpl implements _ClearConversation {
     TResult? Function()? stopListenSpeech,
     TResult? Function()? listeningCompletedEvent,
     TResult? Function(String newText)? updateText,
+    TResult? Function(String message)? addEmptyChat,
+    TResult? Function(String newContent, String chatId)? updateChatByNewText,
   }) {
     return clearConversation?.call();
   }
@@ -1338,6 +1421,8 @@ class _$ClearConversationImpl implements _ClearConversation {
     TResult Function()? stopListenSpeech,
     TResult Function()? listeningCompletedEvent,
     TResult Function(String newText)? updateText,
+    TResult Function(String message)? addEmptyChat,
+    TResult Function(String newContent, String chatId)? updateChatByNewText,
     required TResult orElse(),
   }) {
     if (clearConversation != null) {
@@ -1367,6 +1452,8 @@ class _$ClearConversationImpl implements _ClearConversation {
     required TResult Function(_ListeningCompletedEvent value)
         listeningCompletedEvent,
     required TResult Function(_UpdateText value) updateText,
+    required TResult Function(_AddEmptyChat value) addEmptyChat,
+    required TResult Function(_UpdateChatByNewText value) updateChatByNewText,
   }) {
     return clearConversation(this);
   }
@@ -1391,6 +1478,8 @@ class _$ClearConversationImpl implements _ClearConversation {
     TResult? Function(_StopListenSpeech value)? stopListenSpeech,
     TResult? Function(_ListeningCompletedEvent value)? listeningCompletedEvent,
     TResult? Function(_UpdateText value)? updateText,
+    TResult? Function(_AddEmptyChat value)? addEmptyChat,
+    TResult? Function(_UpdateChatByNewText value)? updateChatByNewText,
   }) {
     return clearConversation?.call(this);
   }
@@ -1415,6 +1504,8 @@ class _$ClearConversationImpl implements _ClearConversation {
     TResult Function(_StopListenSpeech value)? stopListenSpeech,
     TResult Function(_ListeningCompletedEvent value)? listeningCompletedEvent,
     TResult Function(_UpdateText value)? updateText,
+    TResult Function(_AddEmptyChat value)? addEmptyChat,
+    TResult Function(_UpdateChatByNewText value)? updateChatByNewText,
     required TResult orElse(),
   }) {
     if (clearConversation != null) {
@@ -1487,6 +1578,9 @@ class _$InitialTextToSpeechServiceImpl implements _InitialTextToSpeechService {
     required TResult Function() stopListenSpeech,
     required TResult Function() listeningCompletedEvent,
     required TResult Function(String newText) updateText,
+    required TResult Function(String message) addEmptyChat,
+    required TResult Function(String newContent, String chatId)
+        updateChatByNewText,
   }) {
     return initialTextToSpeechService();
   }
@@ -1511,6 +1605,8 @@ class _$InitialTextToSpeechServiceImpl implements _InitialTextToSpeechService {
     TResult? Function()? stopListenSpeech,
     TResult? Function()? listeningCompletedEvent,
     TResult? Function(String newText)? updateText,
+    TResult? Function(String message)? addEmptyChat,
+    TResult? Function(String newContent, String chatId)? updateChatByNewText,
   }) {
     return initialTextToSpeechService?.call();
   }
@@ -1535,6 +1631,8 @@ class _$InitialTextToSpeechServiceImpl implements _InitialTextToSpeechService {
     TResult Function()? stopListenSpeech,
     TResult Function()? listeningCompletedEvent,
     TResult Function(String newText)? updateText,
+    TResult Function(String message)? addEmptyChat,
+    TResult Function(String newContent, String chatId)? updateChatByNewText,
     required TResult orElse(),
   }) {
     if (initialTextToSpeechService != null) {
@@ -1564,6 +1662,8 @@ class _$InitialTextToSpeechServiceImpl implements _InitialTextToSpeechService {
     required TResult Function(_ListeningCompletedEvent value)
         listeningCompletedEvent,
     required TResult Function(_UpdateText value) updateText,
+    required TResult Function(_AddEmptyChat value) addEmptyChat,
+    required TResult Function(_UpdateChatByNewText value) updateChatByNewText,
   }) {
     return initialTextToSpeechService(this);
   }
@@ -1588,6 +1688,8 @@ class _$InitialTextToSpeechServiceImpl implements _InitialTextToSpeechService {
     TResult? Function(_StopListenSpeech value)? stopListenSpeech,
     TResult? Function(_ListeningCompletedEvent value)? listeningCompletedEvent,
     TResult? Function(_UpdateText value)? updateText,
+    TResult? Function(_AddEmptyChat value)? addEmptyChat,
+    TResult? Function(_UpdateChatByNewText value)? updateChatByNewText,
   }) {
     return initialTextToSpeechService?.call(this);
   }
@@ -1612,6 +1714,8 @@ class _$InitialTextToSpeechServiceImpl implements _InitialTextToSpeechService {
     TResult Function(_StopListenSpeech value)? stopListenSpeech,
     TResult Function(_ListeningCompletedEvent value)? listeningCompletedEvent,
     TResult Function(_UpdateText value)? updateText,
+    TResult Function(_AddEmptyChat value)? addEmptyChat,
+    TResult Function(_UpdateChatByNewText value)? updateChatByNewText,
     required TResult orElse(),
   }) {
     if (initialTextToSpeechService != null) {
@@ -1719,6 +1823,9 @@ class _$StartSpeechTextImpl implements _StartSpeechText {
     required TResult Function() stopListenSpeech,
     required TResult Function() listeningCompletedEvent,
     required TResult Function(String newText) updateText,
+    required TResult Function(String message) addEmptyChat,
+    required TResult Function(String newContent, String chatId)
+        updateChatByNewText,
   }) {
     return startSpeechText(content, messageSpeechId);
   }
@@ -1743,6 +1850,8 @@ class _$StartSpeechTextImpl implements _StartSpeechText {
     TResult? Function()? stopListenSpeech,
     TResult? Function()? listeningCompletedEvent,
     TResult? Function(String newText)? updateText,
+    TResult? Function(String message)? addEmptyChat,
+    TResult? Function(String newContent, String chatId)? updateChatByNewText,
   }) {
     return startSpeechText?.call(content, messageSpeechId);
   }
@@ -1767,6 +1876,8 @@ class _$StartSpeechTextImpl implements _StartSpeechText {
     TResult Function()? stopListenSpeech,
     TResult Function()? listeningCompletedEvent,
     TResult Function(String newText)? updateText,
+    TResult Function(String message)? addEmptyChat,
+    TResult Function(String newContent, String chatId)? updateChatByNewText,
     required TResult orElse(),
   }) {
     if (startSpeechText != null) {
@@ -1796,6 +1907,8 @@ class _$StartSpeechTextImpl implements _StartSpeechText {
     required TResult Function(_ListeningCompletedEvent value)
         listeningCompletedEvent,
     required TResult Function(_UpdateText value) updateText,
+    required TResult Function(_AddEmptyChat value) addEmptyChat,
+    required TResult Function(_UpdateChatByNewText value) updateChatByNewText,
   }) {
     return startSpeechText(this);
   }
@@ -1820,6 +1933,8 @@ class _$StartSpeechTextImpl implements _StartSpeechText {
     TResult? Function(_StopListenSpeech value)? stopListenSpeech,
     TResult? Function(_ListeningCompletedEvent value)? listeningCompletedEvent,
     TResult? Function(_UpdateText value)? updateText,
+    TResult? Function(_AddEmptyChat value)? addEmptyChat,
+    TResult? Function(_UpdateChatByNewText value)? updateChatByNewText,
   }) {
     return startSpeechText?.call(this);
   }
@@ -1844,6 +1959,8 @@ class _$StartSpeechTextImpl implements _StartSpeechText {
     TResult Function(_StopListenSpeech value)? stopListenSpeech,
     TResult Function(_ListeningCompletedEvent value)? listeningCompletedEvent,
     TResult Function(_UpdateText value)? updateText,
+    TResult Function(_AddEmptyChat value)? addEmptyChat,
+    TResult Function(_UpdateChatByNewText value)? updateChatByNewText,
     required TResult orElse(),
   }) {
     if (startSpeechText != null) {
@@ -1921,6 +2038,9 @@ class _$StopSpeechTextImpl implements _StopSpeechText {
     required TResult Function() stopListenSpeech,
     required TResult Function() listeningCompletedEvent,
     required TResult Function(String newText) updateText,
+    required TResult Function(String message) addEmptyChat,
+    required TResult Function(String newContent, String chatId)
+        updateChatByNewText,
   }) {
     return stopSpeechText();
   }
@@ -1945,6 +2065,8 @@ class _$StopSpeechTextImpl implements _StopSpeechText {
     TResult? Function()? stopListenSpeech,
     TResult? Function()? listeningCompletedEvent,
     TResult? Function(String newText)? updateText,
+    TResult? Function(String message)? addEmptyChat,
+    TResult? Function(String newContent, String chatId)? updateChatByNewText,
   }) {
     return stopSpeechText?.call();
   }
@@ -1969,6 +2091,8 @@ class _$StopSpeechTextImpl implements _StopSpeechText {
     TResult Function()? stopListenSpeech,
     TResult Function()? listeningCompletedEvent,
     TResult Function(String newText)? updateText,
+    TResult Function(String message)? addEmptyChat,
+    TResult Function(String newContent, String chatId)? updateChatByNewText,
     required TResult orElse(),
   }) {
     if (stopSpeechText != null) {
@@ -1998,6 +2122,8 @@ class _$StopSpeechTextImpl implements _StopSpeechText {
     required TResult Function(_ListeningCompletedEvent value)
         listeningCompletedEvent,
     required TResult Function(_UpdateText value) updateText,
+    required TResult Function(_AddEmptyChat value) addEmptyChat,
+    required TResult Function(_UpdateChatByNewText value) updateChatByNewText,
   }) {
     return stopSpeechText(this);
   }
@@ -2022,6 +2148,8 @@ class _$StopSpeechTextImpl implements _StopSpeechText {
     TResult? Function(_StopListenSpeech value)? stopListenSpeech,
     TResult? Function(_ListeningCompletedEvent value)? listeningCompletedEvent,
     TResult? Function(_UpdateText value)? updateText,
+    TResult? Function(_AddEmptyChat value)? addEmptyChat,
+    TResult? Function(_UpdateChatByNewText value)? updateChatByNewText,
   }) {
     return stopSpeechText?.call(this);
   }
@@ -2046,6 +2174,8 @@ class _$StopSpeechTextImpl implements _StopSpeechText {
     TResult Function(_StopListenSpeech value)? stopListenSpeech,
     TResult Function(_ListeningCompletedEvent value)? listeningCompletedEvent,
     TResult Function(_UpdateText value)? updateText,
+    TResult Function(_AddEmptyChat value)? addEmptyChat,
+    TResult Function(_UpdateChatByNewText value)? updateChatByNewText,
     required TResult orElse(),
   }) {
     if (stopSpeechText != null) {
@@ -2168,6 +2298,9 @@ class _$CancelSpeechTextImpl implements _CancelSpeechText {
     required TResult Function() stopListenSpeech,
     required TResult Function() listeningCompletedEvent,
     required TResult Function(String newText) updateText,
+    required TResult Function(String message) addEmptyChat,
+    required TResult Function(String newContent, String chatId)
+        updateChatByNewText,
   }) {
     return cancelSpeechText(messageId, previousMessageId, functionCall);
   }
@@ -2192,6 +2325,8 @@ class _$CancelSpeechTextImpl implements _CancelSpeechText {
     TResult? Function()? stopListenSpeech,
     TResult? Function()? listeningCompletedEvent,
     TResult? Function(String newText)? updateText,
+    TResult? Function(String message)? addEmptyChat,
+    TResult? Function(String newContent, String chatId)? updateChatByNewText,
   }) {
     return cancelSpeechText?.call(messageId, previousMessageId, functionCall);
   }
@@ -2216,6 +2351,8 @@ class _$CancelSpeechTextImpl implements _CancelSpeechText {
     TResult Function()? stopListenSpeech,
     TResult Function()? listeningCompletedEvent,
     TResult Function(String newText)? updateText,
+    TResult Function(String message)? addEmptyChat,
+    TResult Function(String newContent, String chatId)? updateChatByNewText,
     required TResult orElse(),
   }) {
     if (cancelSpeechText != null) {
@@ -2245,6 +2382,8 @@ class _$CancelSpeechTextImpl implements _CancelSpeechText {
     required TResult Function(_ListeningCompletedEvent value)
         listeningCompletedEvent,
     required TResult Function(_UpdateText value) updateText,
+    required TResult Function(_AddEmptyChat value) addEmptyChat,
+    required TResult Function(_UpdateChatByNewText value) updateChatByNewText,
   }) {
     return cancelSpeechText(this);
   }
@@ -2269,6 +2408,8 @@ class _$CancelSpeechTextImpl implements _CancelSpeechText {
     TResult? Function(_StopListenSpeech value)? stopListenSpeech,
     TResult? Function(_ListeningCompletedEvent value)? listeningCompletedEvent,
     TResult? Function(_UpdateText value)? updateText,
+    TResult? Function(_AddEmptyChat value)? addEmptyChat,
+    TResult? Function(_UpdateChatByNewText value)? updateChatByNewText,
   }) {
     return cancelSpeechText?.call(this);
   }
@@ -2293,6 +2434,8 @@ class _$CancelSpeechTextImpl implements _CancelSpeechText {
     TResult Function(_StopListenSpeech value)? stopListenSpeech,
     TResult Function(_ListeningCompletedEvent value)? listeningCompletedEvent,
     TResult Function(_UpdateText value)? updateText,
+    TResult Function(_AddEmptyChat value)? addEmptyChat,
+    TResult Function(_UpdateChatByNewText value)? updateChatByNewText,
     required TResult orElse(),
   }) {
     if (cancelSpeechText != null) {
@@ -2375,6 +2518,9 @@ class _$InitialSpeechToTextServiceImpl implements _InitialSpeechToTextService {
     required TResult Function() stopListenSpeech,
     required TResult Function() listeningCompletedEvent,
     required TResult Function(String newText) updateText,
+    required TResult Function(String message) addEmptyChat,
+    required TResult Function(String newContent, String chatId)
+        updateChatByNewText,
   }) {
     return initialSpeechToTextService();
   }
@@ -2399,6 +2545,8 @@ class _$InitialSpeechToTextServiceImpl implements _InitialSpeechToTextService {
     TResult? Function()? stopListenSpeech,
     TResult? Function()? listeningCompletedEvent,
     TResult? Function(String newText)? updateText,
+    TResult? Function(String message)? addEmptyChat,
+    TResult? Function(String newContent, String chatId)? updateChatByNewText,
   }) {
     return initialSpeechToTextService?.call();
   }
@@ -2423,6 +2571,8 @@ class _$InitialSpeechToTextServiceImpl implements _InitialSpeechToTextService {
     TResult Function()? stopListenSpeech,
     TResult Function()? listeningCompletedEvent,
     TResult Function(String newText)? updateText,
+    TResult Function(String message)? addEmptyChat,
+    TResult Function(String newContent, String chatId)? updateChatByNewText,
     required TResult orElse(),
   }) {
     if (initialSpeechToTextService != null) {
@@ -2452,6 +2602,8 @@ class _$InitialSpeechToTextServiceImpl implements _InitialSpeechToTextService {
     required TResult Function(_ListeningCompletedEvent value)
         listeningCompletedEvent,
     required TResult Function(_UpdateText value) updateText,
+    required TResult Function(_AddEmptyChat value) addEmptyChat,
+    required TResult Function(_UpdateChatByNewText value) updateChatByNewText,
   }) {
     return initialSpeechToTextService(this);
   }
@@ -2476,6 +2628,8 @@ class _$InitialSpeechToTextServiceImpl implements _InitialSpeechToTextService {
     TResult? Function(_StopListenSpeech value)? stopListenSpeech,
     TResult? Function(_ListeningCompletedEvent value)? listeningCompletedEvent,
     TResult? Function(_UpdateText value)? updateText,
+    TResult? Function(_AddEmptyChat value)? addEmptyChat,
+    TResult? Function(_UpdateChatByNewText value)? updateChatByNewText,
   }) {
     return initialSpeechToTextService?.call(this);
   }
@@ -2500,6 +2654,8 @@ class _$InitialSpeechToTextServiceImpl implements _InitialSpeechToTextService {
     TResult Function(_StopListenSpeech value)? stopListenSpeech,
     TResult Function(_ListeningCompletedEvent value)? listeningCompletedEvent,
     TResult Function(_UpdateText value)? updateText,
+    TResult Function(_AddEmptyChat value)? addEmptyChat,
+    TResult Function(_UpdateChatByNewText value)? updateChatByNewText,
     required TResult orElse(),
   }) {
     if (initialSpeechToTextService != null) {
@@ -2570,6 +2726,9 @@ class _$StartListenSpeechImpl implements _StartListenSpeech {
     required TResult Function() stopListenSpeech,
     required TResult Function() listeningCompletedEvent,
     required TResult Function(String newText) updateText,
+    required TResult Function(String message) addEmptyChat,
+    required TResult Function(String newContent, String chatId)
+        updateChatByNewText,
   }) {
     return startListenSpeech();
   }
@@ -2594,6 +2753,8 @@ class _$StartListenSpeechImpl implements _StartListenSpeech {
     TResult? Function()? stopListenSpeech,
     TResult? Function()? listeningCompletedEvent,
     TResult? Function(String newText)? updateText,
+    TResult? Function(String message)? addEmptyChat,
+    TResult? Function(String newContent, String chatId)? updateChatByNewText,
   }) {
     return startListenSpeech?.call();
   }
@@ -2618,6 +2779,8 @@ class _$StartListenSpeechImpl implements _StartListenSpeech {
     TResult Function()? stopListenSpeech,
     TResult Function()? listeningCompletedEvent,
     TResult Function(String newText)? updateText,
+    TResult Function(String message)? addEmptyChat,
+    TResult Function(String newContent, String chatId)? updateChatByNewText,
     required TResult orElse(),
   }) {
     if (startListenSpeech != null) {
@@ -2647,6 +2810,8 @@ class _$StartListenSpeechImpl implements _StartListenSpeech {
     required TResult Function(_ListeningCompletedEvent value)
         listeningCompletedEvent,
     required TResult Function(_UpdateText value) updateText,
+    required TResult Function(_AddEmptyChat value) addEmptyChat,
+    required TResult Function(_UpdateChatByNewText value) updateChatByNewText,
   }) {
     return startListenSpeech(this);
   }
@@ -2671,6 +2836,8 @@ class _$StartListenSpeechImpl implements _StartListenSpeech {
     TResult? Function(_StopListenSpeech value)? stopListenSpeech,
     TResult? Function(_ListeningCompletedEvent value)? listeningCompletedEvent,
     TResult? Function(_UpdateText value)? updateText,
+    TResult? Function(_AddEmptyChat value)? addEmptyChat,
+    TResult? Function(_UpdateChatByNewText value)? updateChatByNewText,
   }) {
     return startListenSpeech?.call(this);
   }
@@ -2695,6 +2862,8 @@ class _$StartListenSpeechImpl implements _StartListenSpeech {
     TResult Function(_StopListenSpeech value)? stopListenSpeech,
     TResult Function(_ListeningCompletedEvent value)? listeningCompletedEvent,
     TResult Function(_UpdateText value)? updateText,
+    TResult Function(_AddEmptyChat value)? addEmptyChat,
+    TResult Function(_UpdateChatByNewText value)? updateChatByNewText,
     required TResult orElse(),
   }) {
     if (startListenSpeech != null) {
@@ -2764,6 +2933,9 @@ class _$StopListenSpeechImpl implements _StopListenSpeech {
     required TResult Function() stopListenSpeech,
     required TResult Function() listeningCompletedEvent,
     required TResult Function(String newText) updateText,
+    required TResult Function(String message) addEmptyChat,
+    required TResult Function(String newContent, String chatId)
+        updateChatByNewText,
   }) {
     return stopListenSpeech();
   }
@@ -2788,6 +2960,8 @@ class _$StopListenSpeechImpl implements _StopListenSpeech {
     TResult? Function()? stopListenSpeech,
     TResult? Function()? listeningCompletedEvent,
     TResult? Function(String newText)? updateText,
+    TResult? Function(String message)? addEmptyChat,
+    TResult? Function(String newContent, String chatId)? updateChatByNewText,
   }) {
     return stopListenSpeech?.call();
   }
@@ -2812,6 +2986,8 @@ class _$StopListenSpeechImpl implements _StopListenSpeech {
     TResult Function()? stopListenSpeech,
     TResult Function()? listeningCompletedEvent,
     TResult Function(String newText)? updateText,
+    TResult Function(String message)? addEmptyChat,
+    TResult Function(String newContent, String chatId)? updateChatByNewText,
     required TResult orElse(),
   }) {
     if (stopListenSpeech != null) {
@@ -2841,6 +3017,8 @@ class _$StopListenSpeechImpl implements _StopListenSpeech {
     required TResult Function(_ListeningCompletedEvent value)
         listeningCompletedEvent,
     required TResult Function(_UpdateText value) updateText,
+    required TResult Function(_AddEmptyChat value) addEmptyChat,
+    required TResult Function(_UpdateChatByNewText value) updateChatByNewText,
   }) {
     return stopListenSpeech(this);
   }
@@ -2865,6 +3043,8 @@ class _$StopListenSpeechImpl implements _StopListenSpeech {
     TResult? Function(_StopListenSpeech value)? stopListenSpeech,
     TResult? Function(_ListeningCompletedEvent value)? listeningCompletedEvent,
     TResult? Function(_UpdateText value)? updateText,
+    TResult? Function(_AddEmptyChat value)? addEmptyChat,
+    TResult? Function(_UpdateChatByNewText value)? updateChatByNewText,
   }) {
     return stopListenSpeech?.call(this);
   }
@@ -2889,6 +3069,8 @@ class _$StopListenSpeechImpl implements _StopListenSpeech {
     TResult Function(_StopListenSpeech value)? stopListenSpeech,
     TResult Function(_ListeningCompletedEvent value)? listeningCompletedEvent,
     TResult Function(_UpdateText value)? updateText,
+    TResult Function(_AddEmptyChat value)? addEmptyChat,
+    TResult Function(_UpdateChatByNewText value)? updateChatByNewText,
     required TResult orElse(),
   }) {
     if (stopListenSpeech != null) {
@@ -2961,6 +3143,9 @@ class _$ListeningCompletedEventImpl implements _ListeningCompletedEvent {
     required TResult Function() stopListenSpeech,
     required TResult Function() listeningCompletedEvent,
     required TResult Function(String newText) updateText,
+    required TResult Function(String message) addEmptyChat,
+    required TResult Function(String newContent, String chatId)
+        updateChatByNewText,
   }) {
     return listeningCompletedEvent();
   }
@@ -2985,6 +3170,8 @@ class _$ListeningCompletedEventImpl implements _ListeningCompletedEvent {
     TResult? Function()? stopListenSpeech,
     TResult? Function()? listeningCompletedEvent,
     TResult? Function(String newText)? updateText,
+    TResult? Function(String message)? addEmptyChat,
+    TResult? Function(String newContent, String chatId)? updateChatByNewText,
   }) {
     return listeningCompletedEvent?.call();
   }
@@ -3009,6 +3196,8 @@ class _$ListeningCompletedEventImpl implements _ListeningCompletedEvent {
     TResult Function()? stopListenSpeech,
     TResult Function()? listeningCompletedEvent,
     TResult Function(String newText)? updateText,
+    TResult Function(String message)? addEmptyChat,
+    TResult Function(String newContent, String chatId)? updateChatByNewText,
     required TResult orElse(),
   }) {
     if (listeningCompletedEvent != null) {
@@ -3038,6 +3227,8 @@ class _$ListeningCompletedEventImpl implements _ListeningCompletedEvent {
     required TResult Function(_ListeningCompletedEvent value)
         listeningCompletedEvent,
     required TResult Function(_UpdateText value) updateText,
+    required TResult Function(_AddEmptyChat value) addEmptyChat,
+    required TResult Function(_UpdateChatByNewText value) updateChatByNewText,
   }) {
     return listeningCompletedEvent(this);
   }
@@ -3062,6 +3253,8 @@ class _$ListeningCompletedEventImpl implements _ListeningCompletedEvent {
     TResult? Function(_StopListenSpeech value)? stopListenSpeech,
     TResult? Function(_ListeningCompletedEvent value)? listeningCompletedEvent,
     TResult? Function(_UpdateText value)? updateText,
+    TResult? Function(_AddEmptyChat value)? addEmptyChat,
+    TResult? Function(_UpdateChatByNewText value)? updateChatByNewText,
   }) {
     return listeningCompletedEvent?.call(this);
   }
@@ -3086,6 +3279,8 @@ class _$ListeningCompletedEventImpl implements _ListeningCompletedEvent {
     TResult Function(_StopListenSpeech value)? stopListenSpeech,
     TResult Function(_ListeningCompletedEvent value)? listeningCompletedEvent,
     TResult Function(_UpdateText value)? updateText,
+    TResult Function(_AddEmptyChat value)? addEmptyChat,
+    TResult Function(_UpdateChatByNewText value)? updateChatByNewText,
     required TResult orElse(),
   }) {
     if (listeningCompletedEvent != null) {
@@ -3181,6 +3376,9 @@ class _$UpdateTextImpl implements _UpdateText {
     required TResult Function() stopListenSpeech,
     required TResult Function() listeningCompletedEvent,
     required TResult Function(String newText) updateText,
+    required TResult Function(String message) addEmptyChat,
+    required TResult Function(String newContent, String chatId)
+        updateChatByNewText,
   }) {
     return updateText(newText);
   }
@@ -3205,6 +3403,8 @@ class _$UpdateTextImpl implements _UpdateText {
     TResult? Function()? stopListenSpeech,
     TResult? Function()? listeningCompletedEvent,
     TResult? Function(String newText)? updateText,
+    TResult? Function(String message)? addEmptyChat,
+    TResult? Function(String newContent, String chatId)? updateChatByNewText,
   }) {
     return updateText?.call(newText);
   }
@@ -3229,6 +3429,8 @@ class _$UpdateTextImpl implements _UpdateText {
     TResult Function()? stopListenSpeech,
     TResult Function()? listeningCompletedEvent,
     TResult Function(String newText)? updateText,
+    TResult Function(String message)? addEmptyChat,
+    TResult Function(String newContent, String chatId)? updateChatByNewText,
     required TResult orElse(),
   }) {
     if (updateText != null) {
@@ -3258,6 +3460,8 @@ class _$UpdateTextImpl implements _UpdateText {
     required TResult Function(_ListeningCompletedEvent value)
         listeningCompletedEvent,
     required TResult Function(_UpdateText value) updateText,
+    required TResult Function(_AddEmptyChat value) addEmptyChat,
+    required TResult Function(_UpdateChatByNewText value) updateChatByNewText,
   }) {
     return updateText(this);
   }
@@ -3282,6 +3486,8 @@ class _$UpdateTextImpl implements _UpdateText {
     TResult? Function(_StopListenSpeech value)? stopListenSpeech,
     TResult? Function(_ListeningCompletedEvent value)? listeningCompletedEvent,
     TResult? Function(_UpdateText value)? updateText,
+    TResult? Function(_AddEmptyChat value)? addEmptyChat,
+    TResult? Function(_UpdateChatByNewText value)? updateChatByNewText,
   }) {
     return updateText?.call(this);
   }
@@ -3306,6 +3512,8 @@ class _$UpdateTextImpl implements _UpdateText {
     TResult Function(_StopListenSpeech value)? stopListenSpeech,
     TResult Function(_ListeningCompletedEvent value)? listeningCompletedEvent,
     TResult Function(_UpdateText value)? updateText,
+    TResult Function(_AddEmptyChat value)? addEmptyChat,
+    TResult Function(_UpdateChatByNewText value)? updateChatByNewText,
     required TResult orElse(),
   }) {
     if (updateText != null) {
@@ -3321,6 +3529,494 @@ abstract class _UpdateText implements ChatEvent {
   String get newText;
   @JsonKey(ignore: true)
   _$$UpdateTextImplCopyWith<_$UpdateTextImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AddEmptyChatImplCopyWith<$Res> {
+  factory _$$AddEmptyChatImplCopyWith(
+          _$AddEmptyChatImpl value, $Res Function(_$AddEmptyChatImpl) then) =
+      __$$AddEmptyChatImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$AddEmptyChatImplCopyWithImpl<$Res>
+    extends _$ChatEventCopyWithImpl<$Res, _$AddEmptyChatImpl>
+    implements _$$AddEmptyChatImplCopyWith<$Res> {
+  __$$AddEmptyChatImplCopyWithImpl(
+      _$AddEmptyChatImpl _value, $Res Function(_$AddEmptyChatImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$AddEmptyChatImpl(
+      null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AddEmptyChatImpl implements _AddEmptyChat {
+  const _$AddEmptyChatImpl(this.message);
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'ChatEvent.addEmptyChat(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddEmptyChatImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddEmptyChatImplCopyWith<_$AddEmptyChatImpl> get copyWith =>
+      __$$AddEmptyChatImplCopyWithImpl<_$AddEmptyChatImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() getChat,
+    required TResult Function(bool animationPlay) changeTextAnimation,
+    required TResult Function(String content) sendChat,
+    required TResult Function(int conversationId) getConversation,
+    required TResult Function() clearConversation,
+    required TResult Function() initialTextToSpeechService,
+    required TResult Function(String content, String messageSpeechId)
+        startSpeechText,
+    required TResult Function() stopSpeechText,
+    required TResult Function(String messageId, String previousMessageId,
+            dynamic Function() functionCall)
+        cancelSpeechText,
+    required TResult Function() initialSpeechToTextService,
+    required TResult Function() startListenSpeech,
+    required TResult Function() stopListenSpeech,
+    required TResult Function() listeningCompletedEvent,
+    required TResult Function(String newText) updateText,
+    required TResult Function(String message) addEmptyChat,
+    required TResult Function(String newContent, String chatId)
+        updateChatByNewText,
+  }) {
+    return addEmptyChat(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? getChat,
+    TResult? Function(bool animationPlay)? changeTextAnimation,
+    TResult? Function(String content)? sendChat,
+    TResult? Function(int conversationId)? getConversation,
+    TResult? Function()? clearConversation,
+    TResult? Function()? initialTextToSpeechService,
+    TResult? Function(String content, String messageSpeechId)? startSpeechText,
+    TResult? Function()? stopSpeechText,
+    TResult? Function(String messageId, String previousMessageId,
+            dynamic Function() functionCall)?
+        cancelSpeechText,
+    TResult? Function()? initialSpeechToTextService,
+    TResult? Function()? startListenSpeech,
+    TResult? Function()? stopListenSpeech,
+    TResult? Function()? listeningCompletedEvent,
+    TResult? Function(String newText)? updateText,
+    TResult? Function(String message)? addEmptyChat,
+    TResult? Function(String newContent, String chatId)? updateChatByNewText,
+  }) {
+    return addEmptyChat?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? getChat,
+    TResult Function(bool animationPlay)? changeTextAnimation,
+    TResult Function(String content)? sendChat,
+    TResult Function(int conversationId)? getConversation,
+    TResult Function()? clearConversation,
+    TResult Function()? initialTextToSpeechService,
+    TResult Function(String content, String messageSpeechId)? startSpeechText,
+    TResult Function()? stopSpeechText,
+    TResult Function(String messageId, String previousMessageId,
+            dynamic Function() functionCall)?
+        cancelSpeechText,
+    TResult Function()? initialSpeechToTextService,
+    TResult Function()? startListenSpeech,
+    TResult Function()? stopListenSpeech,
+    TResult Function()? listeningCompletedEvent,
+    TResult Function(String newText)? updateText,
+    TResult Function(String message)? addEmptyChat,
+    TResult Function(String newContent, String chatId)? updateChatByNewText,
+    required TResult orElse(),
+  }) {
+    if (addEmptyChat != null) {
+      return addEmptyChat(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_GetChat value) getChat,
+    required TResult Function(_ChangeTextAnimation value) changeTextAnimation,
+    required TResult Function(_SendChat value) sendChat,
+    required TResult Function(_GetConversation value) getConversation,
+    required TResult Function(_ClearConversation value) clearConversation,
+    required TResult Function(_InitialTextToSpeechService value)
+        initialTextToSpeechService,
+    required TResult Function(_StartSpeechText value) startSpeechText,
+    required TResult Function(_StopSpeechText value) stopSpeechText,
+    required TResult Function(_CancelSpeechText value) cancelSpeechText,
+    required TResult Function(_InitialSpeechToTextService value)
+        initialSpeechToTextService,
+    required TResult Function(_StartListenSpeech value) startListenSpeech,
+    required TResult Function(_StopListenSpeech value) stopListenSpeech,
+    required TResult Function(_ListeningCompletedEvent value)
+        listeningCompletedEvent,
+    required TResult Function(_UpdateText value) updateText,
+    required TResult Function(_AddEmptyChat value) addEmptyChat,
+    required TResult Function(_UpdateChatByNewText value) updateChatByNewText,
+  }) {
+    return addEmptyChat(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_GetChat value)? getChat,
+    TResult? Function(_ChangeTextAnimation value)? changeTextAnimation,
+    TResult? Function(_SendChat value)? sendChat,
+    TResult? Function(_GetConversation value)? getConversation,
+    TResult? Function(_ClearConversation value)? clearConversation,
+    TResult? Function(_InitialTextToSpeechService value)?
+        initialTextToSpeechService,
+    TResult? Function(_StartSpeechText value)? startSpeechText,
+    TResult? Function(_StopSpeechText value)? stopSpeechText,
+    TResult? Function(_CancelSpeechText value)? cancelSpeechText,
+    TResult? Function(_InitialSpeechToTextService value)?
+        initialSpeechToTextService,
+    TResult? Function(_StartListenSpeech value)? startListenSpeech,
+    TResult? Function(_StopListenSpeech value)? stopListenSpeech,
+    TResult? Function(_ListeningCompletedEvent value)? listeningCompletedEvent,
+    TResult? Function(_UpdateText value)? updateText,
+    TResult? Function(_AddEmptyChat value)? addEmptyChat,
+    TResult? Function(_UpdateChatByNewText value)? updateChatByNewText,
+  }) {
+    return addEmptyChat?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_GetChat value)? getChat,
+    TResult Function(_ChangeTextAnimation value)? changeTextAnimation,
+    TResult Function(_SendChat value)? sendChat,
+    TResult Function(_GetConversation value)? getConversation,
+    TResult Function(_ClearConversation value)? clearConversation,
+    TResult Function(_InitialTextToSpeechService value)?
+        initialTextToSpeechService,
+    TResult Function(_StartSpeechText value)? startSpeechText,
+    TResult Function(_StopSpeechText value)? stopSpeechText,
+    TResult Function(_CancelSpeechText value)? cancelSpeechText,
+    TResult Function(_InitialSpeechToTextService value)?
+        initialSpeechToTextService,
+    TResult Function(_StartListenSpeech value)? startListenSpeech,
+    TResult Function(_StopListenSpeech value)? stopListenSpeech,
+    TResult Function(_ListeningCompletedEvent value)? listeningCompletedEvent,
+    TResult Function(_UpdateText value)? updateText,
+    TResult Function(_AddEmptyChat value)? addEmptyChat,
+    TResult Function(_UpdateChatByNewText value)? updateChatByNewText,
+    required TResult orElse(),
+  }) {
+    if (addEmptyChat != null) {
+      return addEmptyChat(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddEmptyChat implements ChatEvent {
+  const factory _AddEmptyChat(final String message) = _$AddEmptyChatImpl;
+
+  String get message;
+  @JsonKey(ignore: true)
+  _$$AddEmptyChatImplCopyWith<_$AddEmptyChatImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateChatByNewTextImplCopyWith<$Res> {
+  factory _$$UpdateChatByNewTextImplCopyWith(_$UpdateChatByNewTextImpl value,
+          $Res Function(_$UpdateChatByNewTextImpl) then) =
+      __$$UpdateChatByNewTextImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String newContent, String chatId});
+}
+
+/// @nodoc
+class __$$UpdateChatByNewTextImplCopyWithImpl<$Res>
+    extends _$ChatEventCopyWithImpl<$Res, _$UpdateChatByNewTextImpl>
+    implements _$$UpdateChatByNewTextImplCopyWith<$Res> {
+  __$$UpdateChatByNewTextImplCopyWithImpl(_$UpdateChatByNewTextImpl _value,
+      $Res Function(_$UpdateChatByNewTextImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? newContent = null,
+    Object? chatId = null,
+  }) {
+    return _then(_$UpdateChatByNewTextImpl(
+      null == newContent
+          ? _value.newContent
+          : newContent // ignore: cast_nullable_to_non_nullable
+              as String,
+      null == chatId
+          ? _value.chatId
+          : chatId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UpdateChatByNewTextImpl implements _UpdateChatByNewText {
+  const _$UpdateChatByNewTextImpl(this.newContent, this.chatId);
+
+  @override
+  final String newContent;
+  @override
+  final String chatId;
+
+  @override
+  String toString() {
+    return 'ChatEvent.updateChatByNewText(newContent: $newContent, chatId: $chatId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateChatByNewTextImpl &&
+            (identical(other.newContent, newContent) ||
+                other.newContent == newContent) &&
+            (identical(other.chatId, chatId) || other.chatId == chatId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, newContent, chatId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateChatByNewTextImplCopyWith<_$UpdateChatByNewTextImpl> get copyWith =>
+      __$$UpdateChatByNewTextImplCopyWithImpl<_$UpdateChatByNewTextImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() getChat,
+    required TResult Function(bool animationPlay) changeTextAnimation,
+    required TResult Function(String content) sendChat,
+    required TResult Function(int conversationId) getConversation,
+    required TResult Function() clearConversation,
+    required TResult Function() initialTextToSpeechService,
+    required TResult Function(String content, String messageSpeechId)
+        startSpeechText,
+    required TResult Function() stopSpeechText,
+    required TResult Function(String messageId, String previousMessageId,
+            dynamic Function() functionCall)
+        cancelSpeechText,
+    required TResult Function() initialSpeechToTextService,
+    required TResult Function() startListenSpeech,
+    required TResult Function() stopListenSpeech,
+    required TResult Function() listeningCompletedEvent,
+    required TResult Function(String newText) updateText,
+    required TResult Function(String message) addEmptyChat,
+    required TResult Function(String newContent, String chatId)
+        updateChatByNewText,
+  }) {
+    return updateChatByNewText(newContent, chatId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? getChat,
+    TResult? Function(bool animationPlay)? changeTextAnimation,
+    TResult? Function(String content)? sendChat,
+    TResult? Function(int conversationId)? getConversation,
+    TResult? Function()? clearConversation,
+    TResult? Function()? initialTextToSpeechService,
+    TResult? Function(String content, String messageSpeechId)? startSpeechText,
+    TResult? Function()? stopSpeechText,
+    TResult? Function(String messageId, String previousMessageId,
+            dynamic Function() functionCall)?
+        cancelSpeechText,
+    TResult? Function()? initialSpeechToTextService,
+    TResult? Function()? startListenSpeech,
+    TResult? Function()? stopListenSpeech,
+    TResult? Function()? listeningCompletedEvent,
+    TResult? Function(String newText)? updateText,
+    TResult? Function(String message)? addEmptyChat,
+    TResult? Function(String newContent, String chatId)? updateChatByNewText,
+  }) {
+    return updateChatByNewText?.call(newContent, chatId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? getChat,
+    TResult Function(bool animationPlay)? changeTextAnimation,
+    TResult Function(String content)? sendChat,
+    TResult Function(int conversationId)? getConversation,
+    TResult Function()? clearConversation,
+    TResult Function()? initialTextToSpeechService,
+    TResult Function(String content, String messageSpeechId)? startSpeechText,
+    TResult Function()? stopSpeechText,
+    TResult Function(String messageId, String previousMessageId,
+            dynamic Function() functionCall)?
+        cancelSpeechText,
+    TResult Function()? initialSpeechToTextService,
+    TResult Function()? startListenSpeech,
+    TResult Function()? stopListenSpeech,
+    TResult Function()? listeningCompletedEvent,
+    TResult Function(String newText)? updateText,
+    TResult Function(String message)? addEmptyChat,
+    TResult Function(String newContent, String chatId)? updateChatByNewText,
+    required TResult orElse(),
+  }) {
+    if (updateChatByNewText != null) {
+      return updateChatByNewText(newContent, chatId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_GetChat value) getChat,
+    required TResult Function(_ChangeTextAnimation value) changeTextAnimation,
+    required TResult Function(_SendChat value) sendChat,
+    required TResult Function(_GetConversation value) getConversation,
+    required TResult Function(_ClearConversation value) clearConversation,
+    required TResult Function(_InitialTextToSpeechService value)
+        initialTextToSpeechService,
+    required TResult Function(_StartSpeechText value) startSpeechText,
+    required TResult Function(_StopSpeechText value) stopSpeechText,
+    required TResult Function(_CancelSpeechText value) cancelSpeechText,
+    required TResult Function(_InitialSpeechToTextService value)
+        initialSpeechToTextService,
+    required TResult Function(_StartListenSpeech value) startListenSpeech,
+    required TResult Function(_StopListenSpeech value) stopListenSpeech,
+    required TResult Function(_ListeningCompletedEvent value)
+        listeningCompletedEvent,
+    required TResult Function(_UpdateText value) updateText,
+    required TResult Function(_AddEmptyChat value) addEmptyChat,
+    required TResult Function(_UpdateChatByNewText value) updateChatByNewText,
+  }) {
+    return updateChatByNewText(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_GetChat value)? getChat,
+    TResult? Function(_ChangeTextAnimation value)? changeTextAnimation,
+    TResult? Function(_SendChat value)? sendChat,
+    TResult? Function(_GetConversation value)? getConversation,
+    TResult? Function(_ClearConversation value)? clearConversation,
+    TResult? Function(_InitialTextToSpeechService value)?
+        initialTextToSpeechService,
+    TResult? Function(_StartSpeechText value)? startSpeechText,
+    TResult? Function(_StopSpeechText value)? stopSpeechText,
+    TResult? Function(_CancelSpeechText value)? cancelSpeechText,
+    TResult? Function(_InitialSpeechToTextService value)?
+        initialSpeechToTextService,
+    TResult? Function(_StartListenSpeech value)? startListenSpeech,
+    TResult? Function(_StopListenSpeech value)? stopListenSpeech,
+    TResult? Function(_ListeningCompletedEvent value)? listeningCompletedEvent,
+    TResult? Function(_UpdateText value)? updateText,
+    TResult? Function(_AddEmptyChat value)? addEmptyChat,
+    TResult? Function(_UpdateChatByNewText value)? updateChatByNewText,
+  }) {
+    return updateChatByNewText?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_GetChat value)? getChat,
+    TResult Function(_ChangeTextAnimation value)? changeTextAnimation,
+    TResult Function(_SendChat value)? sendChat,
+    TResult Function(_GetConversation value)? getConversation,
+    TResult Function(_ClearConversation value)? clearConversation,
+    TResult Function(_InitialTextToSpeechService value)?
+        initialTextToSpeechService,
+    TResult Function(_StartSpeechText value)? startSpeechText,
+    TResult Function(_StopSpeechText value)? stopSpeechText,
+    TResult Function(_CancelSpeechText value)? cancelSpeechText,
+    TResult Function(_InitialSpeechToTextService value)?
+        initialSpeechToTextService,
+    TResult Function(_StartListenSpeech value)? startListenSpeech,
+    TResult Function(_StopListenSpeech value)? stopListenSpeech,
+    TResult Function(_ListeningCompletedEvent value)? listeningCompletedEvent,
+    TResult Function(_UpdateText value)? updateText,
+    TResult Function(_AddEmptyChat value)? addEmptyChat,
+    TResult Function(_UpdateChatByNewText value)? updateChatByNewText,
+    required TResult orElse(),
+  }) {
+    if (updateChatByNewText != null) {
+      return updateChatByNewText(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateChatByNewText implements ChatEvent {
+  const factory _UpdateChatByNewText(
+      final String newContent, final String chatId) = _$UpdateChatByNewTextImpl;
+
+  String get newContent;
+  String get chatId;
+  @JsonKey(ignore: true)
+  _$$UpdateChatByNewTextImplCopyWith<_$UpdateChatByNewTextImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -3352,6 +4048,9 @@ mixin _$ChatState {
     required TResult Function(ChatModalState data) clearConversationSuccess,
     required TResult Function(ChatModalState data, String textResponse)
         updateTextSuccess,
+    required TResult Function(ChatModalState data, String message)
+        addEmptyChatState,
+    required TResult Function(ChatModalState data) updateChatByNewTextState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -3377,6 +4076,8 @@ mixin _$ChatState {
     TResult? Function(ChatModalState data)? clearConversationSuccess,
     TResult? Function(ChatModalState data, String textResponse)?
         updateTextSuccess,
+    TResult? Function(ChatModalState data, String message)? addEmptyChatState,
+    TResult? Function(ChatModalState data)? updateChatByNewTextState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -3401,6 +4102,8 @@ mixin _$ChatState {
     TResult Function(ChatModalState data)? clearConversationSuccess,
     TResult Function(ChatModalState data, String textResponse)?
         updateTextSuccess,
+    TResult Function(ChatModalState data, String message)? addEmptyChatState,
+    TResult Function(ChatModalState data)? updateChatByNewTextState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -3431,6 +4134,9 @@ mixin _$ChatState {
     required TResult Function(_ClearConversationSuccess value)
         clearConversationSuccess,
     required TResult Function(_UpdateTextSuccess value) updateTextSuccess,
+    required TResult Function(_AddEmptyChatState value) addEmptyChatState,
+    required TResult Function(_UpdateChatByNewTextState value)
+        updateChatByNewTextState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -3456,6 +4162,9 @@ mixin _$ChatState {
     TResult? Function(_ClearConversationSuccess value)?
         clearConversationSuccess,
     TResult? Function(_UpdateTextSuccess value)? updateTextSuccess,
+    TResult? Function(_AddEmptyChatState value)? addEmptyChatState,
+    TResult? Function(_UpdateChatByNewTextState value)?
+        updateChatByNewTextState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -3480,6 +4189,8 @@ mixin _$ChatState {
         changeTextAnimationSuccess,
     TResult Function(_ClearConversationSuccess value)? clearConversationSuccess,
     TResult Function(_UpdateTextSuccess value)? updateTextSuccess,
+    TResult Function(_AddEmptyChatState value)? addEmptyChatState,
+    TResult Function(_UpdateChatByNewTextState value)? updateChatByNewTextState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -3623,6 +4334,9 @@ class _$InitialImpl extends _Initial {
     required TResult Function(ChatModalState data) clearConversationSuccess,
     required TResult Function(ChatModalState data, String textResponse)
         updateTextSuccess,
+    required TResult Function(ChatModalState data, String message)
+        addEmptyChatState,
+    required TResult Function(ChatModalState data) updateChatByNewTextState,
   }) {
     return initial(data);
   }
@@ -3651,6 +4365,8 @@ class _$InitialImpl extends _Initial {
     TResult? Function(ChatModalState data)? clearConversationSuccess,
     TResult? Function(ChatModalState data, String textResponse)?
         updateTextSuccess,
+    TResult? Function(ChatModalState data, String message)? addEmptyChatState,
+    TResult? Function(ChatModalState data)? updateChatByNewTextState,
   }) {
     return initial?.call(data);
   }
@@ -3678,6 +4394,8 @@ class _$InitialImpl extends _Initial {
     TResult Function(ChatModalState data)? clearConversationSuccess,
     TResult Function(ChatModalState data, String textResponse)?
         updateTextSuccess,
+    TResult Function(ChatModalState data, String message)? addEmptyChatState,
+    TResult Function(ChatModalState data)? updateChatByNewTextState,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -3714,6 +4432,9 @@ class _$InitialImpl extends _Initial {
     required TResult Function(_ClearConversationSuccess value)
         clearConversationSuccess,
     required TResult Function(_UpdateTextSuccess value) updateTextSuccess,
+    required TResult Function(_AddEmptyChatState value) addEmptyChatState,
+    required TResult Function(_UpdateChatByNewTextState value)
+        updateChatByNewTextState,
   }) {
     return initial(this);
   }
@@ -3742,6 +4463,9 @@ class _$InitialImpl extends _Initial {
     TResult? Function(_ClearConversationSuccess value)?
         clearConversationSuccess,
     TResult? Function(_UpdateTextSuccess value)? updateTextSuccess,
+    TResult? Function(_AddEmptyChatState value)? addEmptyChatState,
+    TResult? Function(_UpdateChatByNewTextState value)?
+        updateChatByNewTextState,
   }) {
     return initial?.call(this);
   }
@@ -3769,6 +4493,8 @@ class _$InitialImpl extends _Initial {
         changeTextAnimationSuccess,
     TResult Function(_ClearConversationSuccess value)? clearConversationSuccess,
     TResult Function(_UpdateTextSuccess value)? updateTextSuccess,
+    TResult Function(_AddEmptyChatState value)? addEmptyChatState,
+    TResult Function(_UpdateChatByNewTextState value)? updateChatByNewTextState,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -3883,6 +4609,9 @@ class _$GetChatSuccessImpl extends _GetChatSuccess {
     required TResult Function(ChatModalState data) clearConversationSuccess,
     required TResult Function(ChatModalState data, String textResponse)
         updateTextSuccess,
+    required TResult Function(ChatModalState data, String message)
+        addEmptyChatState,
+    required TResult Function(ChatModalState data) updateChatByNewTextState,
   }) {
     return getChatSuccess(data);
   }
@@ -3911,6 +4640,8 @@ class _$GetChatSuccessImpl extends _GetChatSuccess {
     TResult? Function(ChatModalState data)? clearConversationSuccess,
     TResult? Function(ChatModalState data, String textResponse)?
         updateTextSuccess,
+    TResult? Function(ChatModalState data, String message)? addEmptyChatState,
+    TResult? Function(ChatModalState data)? updateChatByNewTextState,
   }) {
     return getChatSuccess?.call(data);
   }
@@ -3938,6 +4669,8 @@ class _$GetChatSuccessImpl extends _GetChatSuccess {
     TResult Function(ChatModalState data)? clearConversationSuccess,
     TResult Function(ChatModalState data, String textResponse)?
         updateTextSuccess,
+    TResult Function(ChatModalState data, String message)? addEmptyChatState,
+    TResult Function(ChatModalState data)? updateChatByNewTextState,
     required TResult orElse(),
   }) {
     if (getChatSuccess != null) {
@@ -3974,6 +4707,9 @@ class _$GetChatSuccessImpl extends _GetChatSuccess {
     required TResult Function(_ClearConversationSuccess value)
         clearConversationSuccess,
     required TResult Function(_UpdateTextSuccess value) updateTextSuccess,
+    required TResult Function(_AddEmptyChatState value) addEmptyChatState,
+    required TResult Function(_UpdateChatByNewTextState value)
+        updateChatByNewTextState,
   }) {
     return getChatSuccess(this);
   }
@@ -4002,6 +4738,9 @@ class _$GetChatSuccessImpl extends _GetChatSuccess {
     TResult? Function(_ClearConversationSuccess value)?
         clearConversationSuccess,
     TResult? Function(_UpdateTextSuccess value)? updateTextSuccess,
+    TResult? Function(_AddEmptyChatState value)? addEmptyChatState,
+    TResult? Function(_UpdateChatByNewTextState value)?
+        updateChatByNewTextState,
   }) {
     return getChatSuccess?.call(this);
   }
@@ -4029,6 +4768,8 @@ class _$GetChatSuccessImpl extends _GetChatSuccess {
         changeTextAnimationSuccess,
     TResult Function(_ClearConversationSuccess value)? clearConversationSuccess,
     TResult Function(_UpdateTextSuccess value)? updateTextSuccess,
+    TResult Function(_AddEmptyChatState value)? addEmptyChatState,
+    TResult Function(_UpdateChatByNewTextState value)? updateChatByNewTextState,
     required TResult orElse(),
   }) {
     if (getChatSuccess != null) {
@@ -4152,6 +4893,9 @@ class _$GetChatFailedImpl extends _GetChatFailed {
     required TResult Function(ChatModalState data) clearConversationSuccess,
     required TResult Function(ChatModalState data, String textResponse)
         updateTextSuccess,
+    required TResult Function(ChatModalState data, String message)
+        addEmptyChatState,
+    required TResult Function(ChatModalState data) updateChatByNewTextState,
   }) {
     return getChatFailed(data, message);
   }
@@ -4180,6 +4924,8 @@ class _$GetChatFailedImpl extends _GetChatFailed {
     TResult? Function(ChatModalState data)? clearConversationSuccess,
     TResult? Function(ChatModalState data, String textResponse)?
         updateTextSuccess,
+    TResult? Function(ChatModalState data, String message)? addEmptyChatState,
+    TResult? Function(ChatModalState data)? updateChatByNewTextState,
   }) {
     return getChatFailed?.call(data, message);
   }
@@ -4207,6 +4953,8 @@ class _$GetChatFailedImpl extends _GetChatFailed {
     TResult Function(ChatModalState data)? clearConversationSuccess,
     TResult Function(ChatModalState data, String textResponse)?
         updateTextSuccess,
+    TResult Function(ChatModalState data, String message)? addEmptyChatState,
+    TResult Function(ChatModalState data)? updateChatByNewTextState,
     required TResult orElse(),
   }) {
     if (getChatFailed != null) {
@@ -4243,6 +4991,9 @@ class _$GetChatFailedImpl extends _GetChatFailed {
     required TResult Function(_ClearConversationSuccess value)
         clearConversationSuccess,
     required TResult Function(_UpdateTextSuccess value) updateTextSuccess,
+    required TResult Function(_AddEmptyChatState value) addEmptyChatState,
+    required TResult Function(_UpdateChatByNewTextState value)
+        updateChatByNewTextState,
   }) {
     return getChatFailed(this);
   }
@@ -4271,6 +5022,9 @@ class _$GetChatFailedImpl extends _GetChatFailed {
     TResult? Function(_ClearConversationSuccess value)?
         clearConversationSuccess,
     TResult? Function(_UpdateTextSuccess value)? updateTextSuccess,
+    TResult? Function(_AddEmptyChatState value)? addEmptyChatState,
+    TResult? Function(_UpdateChatByNewTextState value)?
+        updateChatByNewTextState,
   }) {
     return getChatFailed?.call(this);
   }
@@ -4298,6 +5052,8 @@ class _$GetChatFailedImpl extends _GetChatFailed {
         changeTextAnimationSuccess,
     TResult Function(_ClearConversationSuccess value)? clearConversationSuccess,
     TResult Function(_UpdateTextSuccess value)? updateTextSuccess,
+    TResult Function(_AddEmptyChatState value)? addEmptyChatState,
+    TResult Function(_UpdateChatByNewTextState value)? updateChatByNewTextState,
     required TResult orElse(),
   }) {
     if (getChatFailed != null) {
@@ -4415,6 +5171,9 @@ class _$SendChatSuccessImpl extends _SendChatSuccess {
     required TResult Function(ChatModalState data) clearConversationSuccess,
     required TResult Function(ChatModalState data, String textResponse)
         updateTextSuccess,
+    required TResult Function(ChatModalState data, String message)
+        addEmptyChatState,
+    required TResult Function(ChatModalState data) updateChatByNewTextState,
   }) {
     return sendChatSuccess(data);
   }
@@ -4443,6 +5202,8 @@ class _$SendChatSuccessImpl extends _SendChatSuccess {
     TResult? Function(ChatModalState data)? clearConversationSuccess,
     TResult? Function(ChatModalState data, String textResponse)?
         updateTextSuccess,
+    TResult? Function(ChatModalState data, String message)? addEmptyChatState,
+    TResult? Function(ChatModalState data)? updateChatByNewTextState,
   }) {
     return sendChatSuccess?.call(data);
   }
@@ -4470,6 +5231,8 @@ class _$SendChatSuccessImpl extends _SendChatSuccess {
     TResult Function(ChatModalState data)? clearConversationSuccess,
     TResult Function(ChatModalState data, String textResponse)?
         updateTextSuccess,
+    TResult Function(ChatModalState data, String message)? addEmptyChatState,
+    TResult Function(ChatModalState data)? updateChatByNewTextState,
     required TResult orElse(),
   }) {
     if (sendChatSuccess != null) {
@@ -4506,6 +5269,9 @@ class _$SendChatSuccessImpl extends _SendChatSuccess {
     required TResult Function(_ClearConversationSuccess value)
         clearConversationSuccess,
     required TResult Function(_UpdateTextSuccess value) updateTextSuccess,
+    required TResult Function(_AddEmptyChatState value) addEmptyChatState,
+    required TResult Function(_UpdateChatByNewTextState value)
+        updateChatByNewTextState,
   }) {
     return sendChatSuccess(this);
   }
@@ -4534,6 +5300,9 @@ class _$SendChatSuccessImpl extends _SendChatSuccess {
     TResult? Function(_ClearConversationSuccess value)?
         clearConversationSuccess,
     TResult? Function(_UpdateTextSuccess value)? updateTextSuccess,
+    TResult? Function(_AddEmptyChatState value)? addEmptyChatState,
+    TResult? Function(_UpdateChatByNewTextState value)?
+        updateChatByNewTextState,
   }) {
     return sendChatSuccess?.call(this);
   }
@@ -4561,6 +5330,8 @@ class _$SendChatSuccessImpl extends _SendChatSuccess {
         changeTextAnimationSuccess,
     TResult Function(_ClearConversationSuccess value)? clearConversationSuccess,
     TResult Function(_UpdateTextSuccess value)? updateTextSuccess,
+    TResult Function(_AddEmptyChatState value)? addEmptyChatState,
+    TResult Function(_UpdateChatByNewTextState value)? updateChatByNewTextState,
     required TResult orElse(),
   }) {
     if (sendChatSuccess != null) {
@@ -4685,6 +5456,9 @@ class _$SendChatFailedImpl extends _SendChatFailed {
     required TResult Function(ChatModalState data) clearConversationSuccess,
     required TResult Function(ChatModalState data, String textResponse)
         updateTextSuccess,
+    required TResult Function(ChatModalState data, String message)
+        addEmptyChatState,
+    required TResult Function(ChatModalState data) updateChatByNewTextState,
   }) {
     return sendChatFailed(data, message);
   }
@@ -4713,6 +5487,8 @@ class _$SendChatFailedImpl extends _SendChatFailed {
     TResult? Function(ChatModalState data)? clearConversationSuccess,
     TResult? Function(ChatModalState data, String textResponse)?
         updateTextSuccess,
+    TResult? Function(ChatModalState data, String message)? addEmptyChatState,
+    TResult? Function(ChatModalState data)? updateChatByNewTextState,
   }) {
     return sendChatFailed?.call(data, message);
   }
@@ -4740,6 +5516,8 @@ class _$SendChatFailedImpl extends _SendChatFailed {
     TResult Function(ChatModalState data)? clearConversationSuccess,
     TResult Function(ChatModalState data, String textResponse)?
         updateTextSuccess,
+    TResult Function(ChatModalState data, String message)? addEmptyChatState,
+    TResult Function(ChatModalState data)? updateChatByNewTextState,
     required TResult orElse(),
   }) {
     if (sendChatFailed != null) {
@@ -4776,6 +5554,9 @@ class _$SendChatFailedImpl extends _SendChatFailed {
     required TResult Function(_ClearConversationSuccess value)
         clearConversationSuccess,
     required TResult Function(_UpdateTextSuccess value) updateTextSuccess,
+    required TResult Function(_AddEmptyChatState value) addEmptyChatState,
+    required TResult Function(_UpdateChatByNewTextState value)
+        updateChatByNewTextState,
   }) {
     return sendChatFailed(this);
   }
@@ -4804,6 +5585,9 @@ class _$SendChatFailedImpl extends _SendChatFailed {
     TResult? Function(_ClearConversationSuccess value)?
         clearConversationSuccess,
     TResult? Function(_UpdateTextSuccess value)? updateTextSuccess,
+    TResult? Function(_AddEmptyChatState value)? addEmptyChatState,
+    TResult? Function(_UpdateChatByNewTextState value)?
+        updateChatByNewTextState,
   }) {
     return sendChatFailed?.call(this);
   }
@@ -4831,6 +5615,8 @@ class _$SendChatFailedImpl extends _SendChatFailed {
         changeTextAnimationSuccess,
     TResult Function(_ClearConversationSuccess value)? clearConversationSuccess,
     TResult Function(_UpdateTextSuccess value)? updateTextSuccess,
+    TResult Function(_AddEmptyChatState value)? addEmptyChatState,
+    TResult Function(_UpdateChatByNewTextState value)? updateChatByNewTextState,
     required TResult orElse(),
   }) {
     if (sendChatFailed != null) {
@@ -4950,6 +5736,9 @@ class _$GetConversationSuccessImpl extends _GetConversationSuccess {
     required TResult Function(ChatModalState data) clearConversationSuccess,
     required TResult Function(ChatModalState data, String textResponse)
         updateTextSuccess,
+    required TResult Function(ChatModalState data, String message)
+        addEmptyChatState,
+    required TResult Function(ChatModalState data) updateChatByNewTextState,
   }) {
     return getConversationSuccess(data);
   }
@@ -4978,6 +5767,8 @@ class _$GetConversationSuccessImpl extends _GetConversationSuccess {
     TResult? Function(ChatModalState data)? clearConversationSuccess,
     TResult? Function(ChatModalState data, String textResponse)?
         updateTextSuccess,
+    TResult? Function(ChatModalState data, String message)? addEmptyChatState,
+    TResult? Function(ChatModalState data)? updateChatByNewTextState,
   }) {
     return getConversationSuccess?.call(data);
   }
@@ -5005,6 +5796,8 @@ class _$GetConversationSuccessImpl extends _GetConversationSuccess {
     TResult Function(ChatModalState data)? clearConversationSuccess,
     TResult Function(ChatModalState data, String textResponse)?
         updateTextSuccess,
+    TResult Function(ChatModalState data, String message)? addEmptyChatState,
+    TResult Function(ChatModalState data)? updateChatByNewTextState,
     required TResult orElse(),
   }) {
     if (getConversationSuccess != null) {
@@ -5041,6 +5834,9 @@ class _$GetConversationSuccessImpl extends _GetConversationSuccess {
     required TResult Function(_ClearConversationSuccess value)
         clearConversationSuccess,
     required TResult Function(_UpdateTextSuccess value) updateTextSuccess,
+    required TResult Function(_AddEmptyChatState value) addEmptyChatState,
+    required TResult Function(_UpdateChatByNewTextState value)
+        updateChatByNewTextState,
   }) {
     return getConversationSuccess(this);
   }
@@ -5069,6 +5865,9 @@ class _$GetConversationSuccessImpl extends _GetConversationSuccess {
     TResult? Function(_ClearConversationSuccess value)?
         clearConversationSuccess,
     TResult? Function(_UpdateTextSuccess value)? updateTextSuccess,
+    TResult? Function(_AddEmptyChatState value)? addEmptyChatState,
+    TResult? Function(_UpdateChatByNewTextState value)?
+        updateChatByNewTextState,
   }) {
     return getConversationSuccess?.call(this);
   }
@@ -5096,6 +5895,8 @@ class _$GetConversationSuccessImpl extends _GetConversationSuccess {
         changeTextAnimationSuccess,
     TResult Function(_ClearConversationSuccess value)? clearConversationSuccess,
     TResult Function(_UpdateTextSuccess value)? updateTextSuccess,
+    TResult Function(_AddEmptyChatState value)? addEmptyChatState,
+    TResult Function(_UpdateChatByNewTextState value)? updateChatByNewTextState,
     required TResult orElse(),
   }) {
     if (getConversationSuccess != null) {
@@ -5221,6 +6022,9 @@ class _$GetConversationFailedImpl extends _GetConversationFailed {
     required TResult Function(ChatModalState data) clearConversationSuccess,
     required TResult Function(ChatModalState data, String textResponse)
         updateTextSuccess,
+    required TResult Function(ChatModalState data, String message)
+        addEmptyChatState,
+    required TResult Function(ChatModalState data) updateChatByNewTextState,
   }) {
     return getConversationFailed(data, message);
   }
@@ -5249,6 +6053,8 @@ class _$GetConversationFailedImpl extends _GetConversationFailed {
     TResult? Function(ChatModalState data)? clearConversationSuccess,
     TResult? Function(ChatModalState data, String textResponse)?
         updateTextSuccess,
+    TResult? Function(ChatModalState data, String message)? addEmptyChatState,
+    TResult? Function(ChatModalState data)? updateChatByNewTextState,
   }) {
     return getConversationFailed?.call(data, message);
   }
@@ -5276,6 +6082,8 @@ class _$GetConversationFailedImpl extends _GetConversationFailed {
     TResult Function(ChatModalState data)? clearConversationSuccess,
     TResult Function(ChatModalState data, String textResponse)?
         updateTextSuccess,
+    TResult Function(ChatModalState data, String message)? addEmptyChatState,
+    TResult Function(ChatModalState data)? updateChatByNewTextState,
     required TResult orElse(),
   }) {
     if (getConversationFailed != null) {
@@ -5312,6 +6120,9 @@ class _$GetConversationFailedImpl extends _GetConversationFailed {
     required TResult Function(_ClearConversationSuccess value)
         clearConversationSuccess,
     required TResult Function(_UpdateTextSuccess value) updateTextSuccess,
+    required TResult Function(_AddEmptyChatState value) addEmptyChatState,
+    required TResult Function(_UpdateChatByNewTextState value)
+        updateChatByNewTextState,
   }) {
     return getConversationFailed(this);
   }
@@ -5340,6 +6151,9 @@ class _$GetConversationFailedImpl extends _GetConversationFailed {
     TResult? Function(_ClearConversationSuccess value)?
         clearConversationSuccess,
     TResult? Function(_UpdateTextSuccess value)? updateTextSuccess,
+    TResult? Function(_AddEmptyChatState value)? addEmptyChatState,
+    TResult? Function(_UpdateChatByNewTextState value)?
+        updateChatByNewTextState,
   }) {
     return getConversationFailed?.call(this);
   }
@@ -5367,6 +6181,8 @@ class _$GetConversationFailedImpl extends _GetConversationFailed {
         changeTextAnimationSuccess,
     TResult Function(_ClearConversationSuccess value)? clearConversationSuccess,
     TResult Function(_UpdateTextSuccess value)? updateTextSuccess,
+    TResult Function(_AddEmptyChatState value)? addEmptyChatState,
+    TResult Function(_UpdateChatByNewTextState value)? updateChatByNewTextState,
     required TResult orElse(),
   }) {
     if (getConversationFailed != null) {
@@ -5483,6 +6299,9 @@ class _$LoadingImpl extends _Loading {
     required TResult Function(ChatModalState data) clearConversationSuccess,
     required TResult Function(ChatModalState data, String textResponse)
         updateTextSuccess,
+    required TResult Function(ChatModalState data, String message)
+        addEmptyChatState,
+    required TResult Function(ChatModalState data) updateChatByNewTextState,
   }) {
     return loading(data);
   }
@@ -5511,6 +6330,8 @@ class _$LoadingImpl extends _Loading {
     TResult? Function(ChatModalState data)? clearConversationSuccess,
     TResult? Function(ChatModalState data, String textResponse)?
         updateTextSuccess,
+    TResult? Function(ChatModalState data, String message)? addEmptyChatState,
+    TResult? Function(ChatModalState data)? updateChatByNewTextState,
   }) {
     return loading?.call(data);
   }
@@ -5538,6 +6359,8 @@ class _$LoadingImpl extends _Loading {
     TResult Function(ChatModalState data)? clearConversationSuccess,
     TResult Function(ChatModalState data, String textResponse)?
         updateTextSuccess,
+    TResult Function(ChatModalState data, String message)? addEmptyChatState,
+    TResult Function(ChatModalState data)? updateChatByNewTextState,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -5574,6 +6397,9 @@ class _$LoadingImpl extends _Loading {
     required TResult Function(_ClearConversationSuccess value)
         clearConversationSuccess,
     required TResult Function(_UpdateTextSuccess value) updateTextSuccess,
+    required TResult Function(_AddEmptyChatState value) addEmptyChatState,
+    required TResult Function(_UpdateChatByNewTextState value)
+        updateChatByNewTextState,
   }) {
     return loading(this);
   }
@@ -5602,6 +6428,9 @@ class _$LoadingImpl extends _Loading {
     TResult? Function(_ClearConversationSuccess value)?
         clearConversationSuccess,
     TResult? Function(_UpdateTextSuccess value)? updateTextSuccess,
+    TResult? Function(_AddEmptyChatState value)? addEmptyChatState,
+    TResult? Function(_UpdateChatByNewTextState value)?
+        updateChatByNewTextState,
   }) {
     return loading?.call(this);
   }
@@ -5629,6 +6458,8 @@ class _$LoadingImpl extends _Loading {
         changeTextAnimationSuccess,
     TResult Function(_ClearConversationSuccess value)? clearConversationSuccess,
     TResult Function(_UpdateTextSuccess value)? updateTextSuccess,
+    TResult Function(_AddEmptyChatState value)? addEmptyChatState,
+    TResult Function(_UpdateChatByNewTextState value)? updateChatByNewTextState,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -5742,6 +6573,9 @@ class _$LoadingSendImpl extends _LoadingSend {
     required TResult Function(ChatModalState data) clearConversationSuccess,
     required TResult Function(ChatModalState data, String textResponse)
         updateTextSuccess,
+    required TResult Function(ChatModalState data, String message)
+        addEmptyChatState,
+    required TResult Function(ChatModalState data) updateChatByNewTextState,
   }) {
     return loadingSend(data);
   }
@@ -5770,6 +6604,8 @@ class _$LoadingSendImpl extends _LoadingSend {
     TResult? Function(ChatModalState data)? clearConversationSuccess,
     TResult? Function(ChatModalState data, String textResponse)?
         updateTextSuccess,
+    TResult? Function(ChatModalState data, String message)? addEmptyChatState,
+    TResult? Function(ChatModalState data)? updateChatByNewTextState,
   }) {
     return loadingSend?.call(data);
   }
@@ -5797,6 +6633,8 @@ class _$LoadingSendImpl extends _LoadingSend {
     TResult Function(ChatModalState data)? clearConversationSuccess,
     TResult Function(ChatModalState data, String textResponse)?
         updateTextSuccess,
+    TResult Function(ChatModalState data, String message)? addEmptyChatState,
+    TResult Function(ChatModalState data)? updateChatByNewTextState,
     required TResult orElse(),
   }) {
     if (loadingSend != null) {
@@ -5833,6 +6671,9 @@ class _$LoadingSendImpl extends _LoadingSend {
     required TResult Function(_ClearConversationSuccess value)
         clearConversationSuccess,
     required TResult Function(_UpdateTextSuccess value) updateTextSuccess,
+    required TResult Function(_AddEmptyChatState value) addEmptyChatState,
+    required TResult Function(_UpdateChatByNewTextState value)
+        updateChatByNewTextState,
   }) {
     return loadingSend(this);
   }
@@ -5861,6 +6702,9 @@ class _$LoadingSendImpl extends _LoadingSend {
     TResult? Function(_ClearConversationSuccess value)?
         clearConversationSuccess,
     TResult? Function(_UpdateTextSuccess value)? updateTextSuccess,
+    TResult? Function(_AddEmptyChatState value)? addEmptyChatState,
+    TResult? Function(_UpdateChatByNewTextState value)?
+        updateChatByNewTextState,
   }) {
     return loadingSend?.call(this);
   }
@@ -5888,6 +6732,8 @@ class _$LoadingSendImpl extends _LoadingSend {
         changeTextAnimationSuccess,
     TResult Function(_ClearConversationSuccess value)? clearConversationSuccess,
     TResult Function(_UpdateTextSuccess value)? updateTextSuccess,
+    TResult Function(_AddEmptyChatState value)? addEmptyChatState,
+    TResult Function(_UpdateChatByNewTextState value)? updateChatByNewTextState,
     required TResult orElse(),
   }) {
     if (loadingSend != null) {
@@ -6005,6 +6851,9 @@ class _$StartSpeechTextSuccessImpl extends _StartSpeechTextSuccess {
     required TResult Function(ChatModalState data) clearConversationSuccess,
     required TResult Function(ChatModalState data, String textResponse)
         updateTextSuccess,
+    required TResult Function(ChatModalState data, String message)
+        addEmptyChatState,
+    required TResult Function(ChatModalState data) updateChatByNewTextState,
   }) {
     return startSpeechTextSuccess(data);
   }
@@ -6033,6 +6882,8 @@ class _$StartSpeechTextSuccessImpl extends _StartSpeechTextSuccess {
     TResult? Function(ChatModalState data)? clearConversationSuccess,
     TResult? Function(ChatModalState data, String textResponse)?
         updateTextSuccess,
+    TResult? Function(ChatModalState data, String message)? addEmptyChatState,
+    TResult? Function(ChatModalState data)? updateChatByNewTextState,
   }) {
     return startSpeechTextSuccess?.call(data);
   }
@@ -6060,6 +6911,8 @@ class _$StartSpeechTextSuccessImpl extends _StartSpeechTextSuccess {
     TResult Function(ChatModalState data)? clearConversationSuccess,
     TResult Function(ChatModalState data, String textResponse)?
         updateTextSuccess,
+    TResult Function(ChatModalState data, String message)? addEmptyChatState,
+    TResult Function(ChatModalState data)? updateChatByNewTextState,
     required TResult orElse(),
   }) {
     if (startSpeechTextSuccess != null) {
@@ -6096,6 +6949,9 @@ class _$StartSpeechTextSuccessImpl extends _StartSpeechTextSuccess {
     required TResult Function(_ClearConversationSuccess value)
         clearConversationSuccess,
     required TResult Function(_UpdateTextSuccess value) updateTextSuccess,
+    required TResult Function(_AddEmptyChatState value) addEmptyChatState,
+    required TResult Function(_UpdateChatByNewTextState value)
+        updateChatByNewTextState,
   }) {
     return startSpeechTextSuccess(this);
   }
@@ -6124,6 +6980,9 @@ class _$StartSpeechTextSuccessImpl extends _StartSpeechTextSuccess {
     TResult? Function(_ClearConversationSuccess value)?
         clearConversationSuccess,
     TResult? Function(_UpdateTextSuccess value)? updateTextSuccess,
+    TResult? Function(_AddEmptyChatState value)? addEmptyChatState,
+    TResult? Function(_UpdateChatByNewTextState value)?
+        updateChatByNewTextState,
   }) {
     return startSpeechTextSuccess?.call(this);
   }
@@ -6151,6 +7010,8 @@ class _$StartSpeechTextSuccessImpl extends _StartSpeechTextSuccess {
         changeTextAnimationSuccess,
     TResult Function(_ClearConversationSuccess value)? clearConversationSuccess,
     TResult Function(_UpdateTextSuccess value)? updateTextSuccess,
+    TResult Function(_AddEmptyChatState value)? addEmptyChatState,
+    TResult Function(_UpdateChatByNewTextState value)? updateChatByNewTextState,
     required TResult orElse(),
   }) {
     if (startSpeechTextSuccess != null) {
@@ -6267,6 +7128,9 @@ class _$StopSpeechTextSuccessImpl extends _StopSpeechTextSuccess {
     required TResult Function(ChatModalState data) clearConversationSuccess,
     required TResult Function(ChatModalState data, String textResponse)
         updateTextSuccess,
+    required TResult Function(ChatModalState data, String message)
+        addEmptyChatState,
+    required TResult Function(ChatModalState data) updateChatByNewTextState,
   }) {
     return stopSpeechTextSuccess(data);
   }
@@ -6295,6 +7159,8 @@ class _$StopSpeechTextSuccessImpl extends _StopSpeechTextSuccess {
     TResult? Function(ChatModalState data)? clearConversationSuccess,
     TResult? Function(ChatModalState data, String textResponse)?
         updateTextSuccess,
+    TResult? Function(ChatModalState data, String message)? addEmptyChatState,
+    TResult? Function(ChatModalState data)? updateChatByNewTextState,
   }) {
     return stopSpeechTextSuccess?.call(data);
   }
@@ -6322,6 +7188,8 @@ class _$StopSpeechTextSuccessImpl extends _StopSpeechTextSuccess {
     TResult Function(ChatModalState data)? clearConversationSuccess,
     TResult Function(ChatModalState data, String textResponse)?
         updateTextSuccess,
+    TResult Function(ChatModalState data, String message)? addEmptyChatState,
+    TResult Function(ChatModalState data)? updateChatByNewTextState,
     required TResult orElse(),
   }) {
     if (stopSpeechTextSuccess != null) {
@@ -6358,6 +7226,9 @@ class _$StopSpeechTextSuccessImpl extends _StopSpeechTextSuccess {
     required TResult Function(_ClearConversationSuccess value)
         clearConversationSuccess,
     required TResult Function(_UpdateTextSuccess value) updateTextSuccess,
+    required TResult Function(_AddEmptyChatState value) addEmptyChatState,
+    required TResult Function(_UpdateChatByNewTextState value)
+        updateChatByNewTextState,
   }) {
     return stopSpeechTextSuccess(this);
   }
@@ -6386,6 +7257,9 @@ class _$StopSpeechTextSuccessImpl extends _StopSpeechTextSuccess {
     TResult? Function(_ClearConversationSuccess value)?
         clearConversationSuccess,
     TResult? Function(_UpdateTextSuccess value)? updateTextSuccess,
+    TResult? Function(_AddEmptyChatState value)? addEmptyChatState,
+    TResult? Function(_UpdateChatByNewTextState value)?
+        updateChatByNewTextState,
   }) {
     return stopSpeechTextSuccess?.call(this);
   }
@@ -6413,6 +7287,8 @@ class _$StopSpeechTextSuccessImpl extends _StopSpeechTextSuccess {
         changeTextAnimationSuccess,
     TResult Function(_ClearConversationSuccess value)? clearConversationSuccess,
     TResult Function(_UpdateTextSuccess value)? updateTextSuccess,
+    TResult Function(_AddEmptyChatState value)? addEmptyChatState,
+    TResult Function(_UpdateChatByNewTextState value)? updateChatByNewTextState,
     required TResult orElse(),
   }) {
     if (stopSpeechTextSuccess != null) {
@@ -6538,6 +7414,9 @@ class _$ListeningSpeechImpl extends _ListeningSpeech {
     required TResult Function(ChatModalState data) clearConversationSuccess,
     required TResult Function(ChatModalState data, String textResponse)
         updateTextSuccess,
+    required TResult Function(ChatModalState data, String message)
+        addEmptyChatState,
+    required TResult Function(ChatModalState data) updateChatByNewTextState,
   }) {
     return listeningSpeech(data, textResponse);
   }
@@ -6566,6 +7445,8 @@ class _$ListeningSpeechImpl extends _ListeningSpeech {
     TResult? Function(ChatModalState data)? clearConversationSuccess,
     TResult? Function(ChatModalState data, String textResponse)?
         updateTextSuccess,
+    TResult? Function(ChatModalState data, String message)? addEmptyChatState,
+    TResult? Function(ChatModalState data)? updateChatByNewTextState,
   }) {
     return listeningSpeech?.call(data, textResponse);
   }
@@ -6593,6 +7474,8 @@ class _$ListeningSpeechImpl extends _ListeningSpeech {
     TResult Function(ChatModalState data)? clearConversationSuccess,
     TResult Function(ChatModalState data, String textResponse)?
         updateTextSuccess,
+    TResult Function(ChatModalState data, String message)? addEmptyChatState,
+    TResult Function(ChatModalState data)? updateChatByNewTextState,
     required TResult orElse(),
   }) {
     if (listeningSpeech != null) {
@@ -6629,6 +7512,9 @@ class _$ListeningSpeechImpl extends _ListeningSpeech {
     required TResult Function(_ClearConversationSuccess value)
         clearConversationSuccess,
     required TResult Function(_UpdateTextSuccess value) updateTextSuccess,
+    required TResult Function(_AddEmptyChatState value) addEmptyChatState,
+    required TResult Function(_UpdateChatByNewTextState value)
+        updateChatByNewTextState,
   }) {
     return listeningSpeech(this);
   }
@@ -6657,6 +7543,9 @@ class _$ListeningSpeechImpl extends _ListeningSpeech {
     TResult? Function(_ClearConversationSuccess value)?
         clearConversationSuccess,
     TResult? Function(_UpdateTextSuccess value)? updateTextSuccess,
+    TResult? Function(_AddEmptyChatState value)? addEmptyChatState,
+    TResult? Function(_UpdateChatByNewTextState value)?
+        updateChatByNewTextState,
   }) {
     return listeningSpeech?.call(this);
   }
@@ -6684,6 +7573,8 @@ class _$ListeningSpeechImpl extends _ListeningSpeech {
         changeTextAnimationSuccess,
     TResult Function(_ClearConversationSuccess value)? clearConversationSuccess,
     TResult Function(_UpdateTextSuccess value)? updateTextSuccess,
+    TResult Function(_AddEmptyChatState value)? addEmptyChatState,
+    TResult Function(_UpdateChatByNewTextState value)? updateChatByNewTextState,
     required TResult orElse(),
   }) {
     if (listeningSpeech != null) {
@@ -6801,6 +7692,9 @@ class _$StopListeningSpeechImpl extends _StopListeningSpeech {
     required TResult Function(ChatModalState data) clearConversationSuccess,
     required TResult Function(ChatModalState data, String textResponse)
         updateTextSuccess,
+    required TResult Function(ChatModalState data, String message)
+        addEmptyChatState,
+    required TResult Function(ChatModalState data) updateChatByNewTextState,
   }) {
     return stopListeningSpeech(data);
   }
@@ -6829,6 +7723,8 @@ class _$StopListeningSpeechImpl extends _StopListeningSpeech {
     TResult? Function(ChatModalState data)? clearConversationSuccess,
     TResult? Function(ChatModalState data, String textResponse)?
         updateTextSuccess,
+    TResult? Function(ChatModalState data, String message)? addEmptyChatState,
+    TResult? Function(ChatModalState data)? updateChatByNewTextState,
   }) {
     return stopListeningSpeech?.call(data);
   }
@@ -6856,6 +7752,8 @@ class _$StopListeningSpeechImpl extends _StopListeningSpeech {
     TResult Function(ChatModalState data)? clearConversationSuccess,
     TResult Function(ChatModalState data, String textResponse)?
         updateTextSuccess,
+    TResult Function(ChatModalState data, String message)? addEmptyChatState,
+    TResult Function(ChatModalState data)? updateChatByNewTextState,
     required TResult orElse(),
   }) {
     if (stopListeningSpeech != null) {
@@ -6892,6 +7790,9 @@ class _$StopListeningSpeechImpl extends _StopListeningSpeech {
     required TResult Function(_ClearConversationSuccess value)
         clearConversationSuccess,
     required TResult Function(_UpdateTextSuccess value) updateTextSuccess,
+    required TResult Function(_AddEmptyChatState value) addEmptyChatState,
+    required TResult Function(_UpdateChatByNewTextState value)
+        updateChatByNewTextState,
   }) {
     return stopListeningSpeech(this);
   }
@@ -6920,6 +7821,9 @@ class _$StopListeningSpeechImpl extends _StopListeningSpeech {
     TResult? Function(_ClearConversationSuccess value)?
         clearConversationSuccess,
     TResult? Function(_UpdateTextSuccess value)? updateTextSuccess,
+    TResult? Function(_AddEmptyChatState value)? addEmptyChatState,
+    TResult? Function(_UpdateChatByNewTextState value)?
+        updateChatByNewTextState,
   }) {
     return stopListeningSpeech?.call(this);
   }
@@ -6947,6 +7851,8 @@ class _$StopListeningSpeechImpl extends _StopListeningSpeech {
         changeTextAnimationSuccess,
     TResult Function(_ClearConversationSuccess value)? clearConversationSuccess,
     TResult Function(_UpdateTextSuccess value)? updateTextSuccess,
+    TResult Function(_AddEmptyChatState value)? addEmptyChatState,
+    TResult Function(_UpdateChatByNewTextState value)? updateChatByNewTextState,
     required TResult orElse(),
   }) {
     if (stopListeningSpeech != null) {
@@ -7062,6 +7968,9 @@ class _$ListeningCompletedImpl extends _ListeningCompleted {
     required TResult Function(ChatModalState data) clearConversationSuccess,
     required TResult Function(ChatModalState data, String textResponse)
         updateTextSuccess,
+    required TResult Function(ChatModalState data, String message)
+        addEmptyChatState,
+    required TResult Function(ChatModalState data) updateChatByNewTextState,
   }) {
     return listeningCompleted(data);
   }
@@ -7090,6 +7999,8 @@ class _$ListeningCompletedImpl extends _ListeningCompleted {
     TResult? Function(ChatModalState data)? clearConversationSuccess,
     TResult? Function(ChatModalState data, String textResponse)?
         updateTextSuccess,
+    TResult? Function(ChatModalState data, String message)? addEmptyChatState,
+    TResult? Function(ChatModalState data)? updateChatByNewTextState,
   }) {
     return listeningCompleted?.call(data);
   }
@@ -7117,6 +8028,8 @@ class _$ListeningCompletedImpl extends _ListeningCompleted {
     TResult Function(ChatModalState data)? clearConversationSuccess,
     TResult Function(ChatModalState data, String textResponse)?
         updateTextSuccess,
+    TResult Function(ChatModalState data, String message)? addEmptyChatState,
+    TResult Function(ChatModalState data)? updateChatByNewTextState,
     required TResult orElse(),
   }) {
     if (listeningCompleted != null) {
@@ -7153,6 +8066,9 @@ class _$ListeningCompletedImpl extends _ListeningCompleted {
     required TResult Function(_ClearConversationSuccess value)
         clearConversationSuccess,
     required TResult Function(_UpdateTextSuccess value) updateTextSuccess,
+    required TResult Function(_AddEmptyChatState value) addEmptyChatState,
+    required TResult Function(_UpdateChatByNewTextState value)
+        updateChatByNewTextState,
   }) {
     return listeningCompleted(this);
   }
@@ -7181,6 +8097,9 @@ class _$ListeningCompletedImpl extends _ListeningCompleted {
     TResult? Function(_ClearConversationSuccess value)?
         clearConversationSuccess,
     TResult? Function(_UpdateTextSuccess value)? updateTextSuccess,
+    TResult? Function(_AddEmptyChatState value)? addEmptyChatState,
+    TResult? Function(_UpdateChatByNewTextState value)?
+        updateChatByNewTextState,
   }) {
     return listeningCompleted?.call(this);
   }
@@ -7208,6 +8127,8 @@ class _$ListeningCompletedImpl extends _ListeningCompleted {
         changeTextAnimationSuccess,
     TResult Function(_ClearConversationSuccess value)? clearConversationSuccess,
     TResult Function(_UpdateTextSuccess value)? updateTextSuccess,
+    TResult Function(_AddEmptyChatState value)? addEmptyChatState,
+    TResult Function(_UpdateChatByNewTextState value)? updateChatByNewTextState,
     required TResult orElse(),
   }) {
     if (listeningCompleted != null) {
@@ -7325,6 +8246,9 @@ class _$InitialSpeechToTextSuccessImpl extends _InitialSpeechToTextSuccess {
     required TResult Function(ChatModalState data) clearConversationSuccess,
     required TResult Function(ChatModalState data, String textResponse)
         updateTextSuccess,
+    required TResult Function(ChatModalState data, String message)
+        addEmptyChatState,
+    required TResult Function(ChatModalState data) updateChatByNewTextState,
   }) {
     return initSpeechToTextSuccess(data);
   }
@@ -7353,6 +8277,8 @@ class _$InitialSpeechToTextSuccessImpl extends _InitialSpeechToTextSuccess {
     TResult? Function(ChatModalState data)? clearConversationSuccess,
     TResult? Function(ChatModalState data, String textResponse)?
         updateTextSuccess,
+    TResult? Function(ChatModalState data, String message)? addEmptyChatState,
+    TResult? Function(ChatModalState data)? updateChatByNewTextState,
   }) {
     return initSpeechToTextSuccess?.call(data);
   }
@@ -7380,6 +8306,8 @@ class _$InitialSpeechToTextSuccessImpl extends _InitialSpeechToTextSuccess {
     TResult Function(ChatModalState data)? clearConversationSuccess,
     TResult Function(ChatModalState data, String textResponse)?
         updateTextSuccess,
+    TResult Function(ChatModalState data, String message)? addEmptyChatState,
+    TResult Function(ChatModalState data)? updateChatByNewTextState,
     required TResult orElse(),
   }) {
     if (initSpeechToTextSuccess != null) {
@@ -7416,6 +8344,9 @@ class _$InitialSpeechToTextSuccessImpl extends _InitialSpeechToTextSuccess {
     required TResult Function(_ClearConversationSuccess value)
         clearConversationSuccess,
     required TResult Function(_UpdateTextSuccess value) updateTextSuccess,
+    required TResult Function(_AddEmptyChatState value) addEmptyChatState,
+    required TResult Function(_UpdateChatByNewTextState value)
+        updateChatByNewTextState,
   }) {
     return initSpeechToTextSuccess(this);
   }
@@ -7444,6 +8375,9 @@ class _$InitialSpeechToTextSuccessImpl extends _InitialSpeechToTextSuccess {
     TResult? Function(_ClearConversationSuccess value)?
         clearConversationSuccess,
     TResult? Function(_UpdateTextSuccess value)? updateTextSuccess,
+    TResult? Function(_AddEmptyChatState value)? addEmptyChatState,
+    TResult? Function(_UpdateChatByNewTextState value)?
+        updateChatByNewTextState,
   }) {
     return initSpeechToTextSuccess?.call(this);
   }
@@ -7471,6 +8405,8 @@ class _$InitialSpeechToTextSuccessImpl extends _InitialSpeechToTextSuccess {
         changeTextAnimationSuccess,
     TResult Function(_ClearConversationSuccess value)? clearConversationSuccess,
     TResult Function(_UpdateTextSuccess value)? updateTextSuccess,
+    TResult Function(_AddEmptyChatState value)? addEmptyChatState,
+    TResult Function(_UpdateChatByNewTextState value)? updateChatByNewTextState,
     required TResult orElse(),
   }) {
     if (initSpeechToTextSuccess != null) {
@@ -7588,6 +8524,9 @@ class _$ChangeTextAnimationSuccessImpl extends _ChangeTextAnimationSuccess {
     required TResult Function(ChatModalState data) clearConversationSuccess,
     required TResult Function(ChatModalState data, String textResponse)
         updateTextSuccess,
+    required TResult Function(ChatModalState data, String message)
+        addEmptyChatState,
+    required TResult Function(ChatModalState data) updateChatByNewTextState,
   }) {
     return changeTextAnimationSuccess(data);
   }
@@ -7616,6 +8555,8 @@ class _$ChangeTextAnimationSuccessImpl extends _ChangeTextAnimationSuccess {
     TResult? Function(ChatModalState data)? clearConversationSuccess,
     TResult? Function(ChatModalState data, String textResponse)?
         updateTextSuccess,
+    TResult? Function(ChatModalState data, String message)? addEmptyChatState,
+    TResult? Function(ChatModalState data)? updateChatByNewTextState,
   }) {
     return changeTextAnimationSuccess?.call(data);
   }
@@ -7643,6 +8584,8 @@ class _$ChangeTextAnimationSuccessImpl extends _ChangeTextAnimationSuccess {
     TResult Function(ChatModalState data)? clearConversationSuccess,
     TResult Function(ChatModalState data, String textResponse)?
         updateTextSuccess,
+    TResult Function(ChatModalState data, String message)? addEmptyChatState,
+    TResult Function(ChatModalState data)? updateChatByNewTextState,
     required TResult orElse(),
   }) {
     if (changeTextAnimationSuccess != null) {
@@ -7679,6 +8622,9 @@ class _$ChangeTextAnimationSuccessImpl extends _ChangeTextAnimationSuccess {
     required TResult Function(_ClearConversationSuccess value)
         clearConversationSuccess,
     required TResult Function(_UpdateTextSuccess value) updateTextSuccess,
+    required TResult Function(_AddEmptyChatState value) addEmptyChatState,
+    required TResult Function(_UpdateChatByNewTextState value)
+        updateChatByNewTextState,
   }) {
     return changeTextAnimationSuccess(this);
   }
@@ -7707,6 +8653,9 @@ class _$ChangeTextAnimationSuccessImpl extends _ChangeTextAnimationSuccess {
     TResult? Function(_ClearConversationSuccess value)?
         clearConversationSuccess,
     TResult? Function(_UpdateTextSuccess value)? updateTextSuccess,
+    TResult? Function(_AddEmptyChatState value)? addEmptyChatState,
+    TResult? Function(_UpdateChatByNewTextState value)?
+        updateChatByNewTextState,
   }) {
     return changeTextAnimationSuccess?.call(this);
   }
@@ -7734,6 +8683,8 @@ class _$ChangeTextAnimationSuccessImpl extends _ChangeTextAnimationSuccess {
         changeTextAnimationSuccess,
     TResult Function(_ClearConversationSuccess value)? clearConversationSuccess,
     TResult Function(_UpdateTextSuccess value)? updateTextSuccess,
+    TResult Function(_AddEmptyChatState value)? addEmptyChatState,
+    TResult Function(_UpdateChatByNewTextState value)? updateChatByNewTextState,
     required TResult orElse(),
   }) {
     if (changeTextAnimationSuccess != null) {
@@ -7851,6 +8802,9 @@ class _$ClearConversationSuccessImpl extends _ClearConversationSuccess {
     required TResult Function(ChatModalState data) clearConversationSuccess,
     required TResult Function(ChatModalState data, String textResponse)
         updateTextSuccess,
+    required TResult Function(ChatModalState data, String message)
+        addEmptyChatState,
+    required TResult Function(ChatModalState data) updateChatByNewTextState,
   }) {
     return clearConversationSuccess(data);
   }
@@ -7879,6 +8833,8 @@ class _$ClearConversationSuccessImpl extends _ClearConversationSuccess {
     TResult? Function(ChatModalState data)? clearConversationSuccess,
     TResult? Function(ChatModalState data, String textResponse)?
         updateTextSuccess,
+    TResult? Function(ChatModalState data, String message)? addEmptyChatState,
+    TResult? Function(ChatModalState data)? updateChatByNewTextState,
   }) {
     return clearConversationSuccess?.call(data);
   }
@@ -7906,6 +8862,8 @@ class _$ClearConversationSuccessImpl extends _ClearConversationSuccess {
     TResult Function(ChatModalState data)? clearConversationSuccess,
     TResult Function(ChatModalState data, String textResponse)?
         updateTextSuccess,
+    TResult Function(ChatModalState data, String message)? addEmptyChatState,
+    TResult Function(ChatModalState data)? updateChatByNewTextState,
     required TResult orElse(),
   }) {
     if (clearConversationSuccess != null) {
@@ -7942,6 +8900,9 @@ class _$ClearConversationSuccessImpl extends _ClearConversationSuccess {
     required TResult Function(_ClearConversationSuccess value)
         clearConversationSuccess,
     required TResult Function(_UpdateTextSuccess value) updateTextSuccess,
+    required TResult Function(_AddEmptyChatState value) addEmptyChatState,
+    required TResult Function(_UpdateChatByNewTextState value)
+        updateChatByNewTextState,
   }) {
     return clearConversationSuccess(this);
   }
@@ -7970,6 +8931,9 @@ class _$ClearConversationSuccessImpl extends _ClearConversationSuccess {
     TResult? Function(_ClearConversationSuccess value)?
         clearConversationSuccess,
     TResult? Function(_UpdateTextSuccess value)? updateTextSuccess,
+    TResult? Function(_AddEmptyChatState value)? addEmptyChatState,
+    TResult? Function(_UpdateChatByNewTextState value)?
+        updateChatByNewTextState,
   }) {
     return clearConversationSuccess?.call(this);
   }
@@ -7997,6 +8961,8 @@ class _$ClearConversationSuccessImpl extends _ClearConversationSuccess {
         changeTextAnimationSuccess,
     TResult Function(_ClearConversationSuccess value)? clearConversationSuccess,
     TResult Function(_UpdateTextSuccess value)? updateTextSuccess,
+    TResult Function(_AddEmptyChatState value)? addEmptyChatState,
+    TResult Function(_UpdateChatByNewTextState value)? updateChatByNewTextState,
     required TResult orElse(),
   }) {
     if (clearConversationSuccess != null) {
@@ -8123,6 +9089,9 @@ class _$UpdateTextSuccessImpl extends _UpdateTextSuccess {
     required TResult Function(ChatModalState data) clearConversationSuccess,
     required TResult Function(ChatModalState data, String textResponse)
         updateTextSuccess,
+    required TResult Function(ChatModalState data, String message)
+        addEmptyChatState,
+    required TResult Function(ChatModalState data) updateChatByNewTextState,
   }) {
     return updateTextSuccess(data, textResponse);
   }
@@ -8151,6 +9120,8 @@ class _$UpdateTextSuccessImpl extends _UpdateTextSuccess {
     TResult? Function(ChatModalState data)? clearConversationSuccess,
     TResult? Function(ChatModalState data, String textResponse)?
         updateTextSuccess,
+    TResult? Function(ChatModalState data, String message)? addEmptyChatState,
+    TResult? Function(ChatModalState data)? updateChatByNewTextState,
   }) {
     return updateTextSuccess?.call(data, textResponse);
   }
@@ -8178,6 +9149,8 @@ class _$UpdateTextSuccessImpl extends _UpdateTextSuccess {
     TResult Function(ChatModalState data)? clearConversationSuccess,
     TResult Function(ChatModalState data, String textResponse)?
         updateTextSuccess,
+    TResult Function(ChatModalState data, String message)? addEmptyChatState,
+    TResult Function(ChatModalState data)? updateChatByNewTextState,
     required TResult orElse(),
   }) {
     if (updateTextSuccess != null) {
@@ -8214,6 +9187,9 @@ class _$UpdateTextSuccessImpl extends _UpdateTextSuccess {
     required TResult Function(_ClearConversationSuccess value)
         clearConversationSuccess,
     required TResult Function(_UpdateTextSuccess value) updateTextSuccess,
+    required TResult Function(_AddEmptyChatState value) addEmptyChatState,
+    required TResult Function(_UpdateChatByNewTextState value)
+        updateChatByNewTextState,
   }) {
     return updateTextSuccess(this);
   }
@@ -8242,6 +9218,9 @@ class _$UpdateTextSuccessImpl extends _UpdateTextSuccess {
     TResult? Function(_ClearConversationSuccess value)?
         clearConversationSuccess,
     TResult? Function(_UpdateTextSuccess value)? updateTextSuccess,
+    TResult? Function(_AddEmptyChatState value)? addEmptyChatState,
+    TResult? Function(_UpdateChatByNewTextState value)?
+        updateChatByNewTextState,
   }) {
     return updateTextSuccess?.call(this);
   }
@@ -8269,6 +9248,8 @@ class _$UpdateTextSuccessImpl extends _UpdateTextSuccess {
         changeTextAnimationSuccess,
     TResult Function(_ClearConversationSuccess value)? clearConversationSuccess,
     TResult Function(_UpdateTextSuccess value)? updateTextSuccess,
+    TResult Function(_AddEmptyChatState value)? addEmptyChatState,
+    TResult Function(_UpdateChatByNewTextState value)? updateChatByNewTextState,
     required TResult orElse(),
   }) {
     if (updateTextSuccess != null) {
@@ -8291,4 +9272,569 @@ abstract class _UpdateTextSuccess extends ChatState {
   @JsonKey(ignore: true)
   _$$UpdateTextSuccessImplCopyWith<_$UpdateTextSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AddEmptyChatStateImplCopyWith<$Res>
+    implements $ChatStateCopyWith<$Res> {
+  factory _$$AddEmptyChatStateImplCopyWith(_$AddEmptyChatStateImpl value,
+          $Res Function(_$AddEmptyChatStateImpl) then) =
+      __$$AddEmptyChatStateImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({ChatModalState data, String message});
+
+  @override
+  $ChatModalStateCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$AddEmptyChatStateImplCopyWithImpl<$Res>
+    extends _$ChatStateCopyWithImpl<$Res, _$AddEmptyChatStateImpl>
+    implements _$$AddEmptyChatStateImplCopyWith<$Res> {
+  __$$AddEmptyChatStateImplCopyWithImpl(_$AddEmptyChatStateImpl _value,
+      $Res Function(_$AddEmptyChatStateImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+    Object? message = null,
+  }) {
+    return _then(_$AddEmptyChatStateImpl(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as ChatModalState,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AddEmptyChatStateImpl extends _AddEmptyChatState {
+  const _$AddEmptyChatStateImpl({required this.data, required this.message})
+      : super._();
+
+  @override
+  final ChatModalState data;
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'ChatState.addEmptyChatState(data: $data, message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddEmptyChatStateImpl &&
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddEmptyChatStateImplCopyWith<_$AddEmptyChatStateImpl> get copyWith =>
+      __$$AddEmptyChatStateImplCopyWithImpl<_$AddEmptyChatStateImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(ChatModalState data) initial,
+    required TResult Function(ChatModalState data) getChatSuccess,
+    required TResult Function(ChatModalState data, String message)
+        getChatFailed,
+    required TResult Function(ChatModalState data) sendChatSuccess,
+    required TResult Function(ChatModalState data, String message)
+        sendChatFailed,
+    required TResult Function(ChatModalState data) getConversationSuccess,
+    required TResult Function(ChatModalState data, String message)
+        getConversationFailed,
+    required TResult Function(ChatModalState data) loading,
+    required TResult Function(ChatModalState data) loadingSend,
+    required TResult Function(ChatModalState data) startSpeechTextSuccess,
+    required TResult Function(ChatModalState data) stopSpeechTextSuccess,
+    required TResult Function(ChatModalState data, String textResponse)
+        listeningSpeech,
+    required TResult Function(ChatModalState data) stopListeningSpeech,
+    required TResult Function(ChatModalState data) listeningCompleted,
+    required TResult Function(ChatModalState data) initSpeechToTextSuccess,
+    required TResult Function(ChatModalState data) changeTextAnimationSuccess,
+    required TResult Function(ChatModalState data) clearConversationSuccess,
+    required TResult Function(ChatModalState data, String textResponse)
+        updateTextSuccess,
+    required TResult Function(ChatModalState data, String message)
+        addEmptyChatState,
+    required TResult Function(ChatModalState data) updateChatByNewTextState,
+  }) {
+    return addEmptyChatState(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(ChatModalState data)? initial,
+    TResult? Function(ChatModalState data)? getChatSuccess,
+    TResult? Function(ChatModalState data, String message)? getChatFailed,
+    TResult? Function(ChatModalState data)? sendChatSuccess,
+    TResult? Function(ChatModalState data, String message)? sendChatFailed,
+    TResult? Function(ChatModalState data)? getConversationSuccess,
+    TResult? Function(ChatModalState data, String message)?
+        getConversationFailed,
+    TResult? Function(ChatModalState data)? loading,
+    TResult? Function(ChatModalState data)? loadingSend,
+    TResult? Function(ChatModalState data)? startSpeechTextSuccess,
+    TResult? Function(ChatModalState data)? stopSpeechTextSuccess,
+    TResult? Function(ChatModalState data, String textResponse)?
+        listeningSpeech,
+    TResult? Function(ChatModalState data)? stopListeningSpeech,
+    TResult? Function(ChatModalState data)? listeningCompleted,
+    TResult? Function(ChatModalState data)? initSpeechToTextSuccess,
+    TResult? Function(ChatModalState data)? changeTextAnimationSuccess,
+    TResult? Function(ChatModalState data)? clearConversationSuccess,
+    TResult? Function(ChatModalState data, String textResponse)?
+        updateTextSuccess,
+    TResult? Function(ChatModalState data, String message)? addEmptyChatState,
+    TResult? Function(ChatModalState data)? updateChatByNewTextState,
+  }) {
+    return addEmptyChatState?.call(data, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ChatModalState data)? initial,
+    TResult Function(ChatModalState data)? getChatSuccess,
+    TResult Function(ChatModalState data, String message)? getChatFailed,
+    TResult Function(ChatModalState data)? sendChatSuccess,
+    TResult Function(ChatModalState data, String message)? sendChatFailed,
+    TResult Function(ChatModalState data)? getConversationSuccess,
+    TResult Function(ChatModalState data, String message)?
+        getConversationFailed,
+    TResult Function(ChatModalState data)? loading,
+    TResult Function(ChatModalState data)? loadingSend,
+    TResult Function(ChatModalState data)? startSpeechTextSuccess,
+    TResult Function(ChatModalState data)? stopSpeechTextSuccess,
+    TResult Function(ChatModalState data, String textResponse)? listeningSpeech,
+    TResult Function(ChatModalState data)? stopListeningSpeech,
+    TResult Function(ChatModalState data)? listeningCompleted,
+    TResult Function(ChatModalState data)? initSpeechToTextSuccess,
+    TResult Function(ChatModalState data)? changeTextAnimationSuccess,
+    TResult Function(ChatModalState data)? clearConversationSuccess,
+    TResult Function(ChatModalState data, String textResponse)?
+        updateTextSuccess,
+    TResult Function(ChatModalState data, String message)? addEmptyChatState,
+    TResult Function(ChatModalState data)? updateChatByNewTextState,
+    required TResult orElse(),
+  }) {
+    if (addEmptyChatState != null) {
+      return addEmptyChatState(data, message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_GetChatSuccess value) getChatSuccess,
+    required TResult Function(_GetChatFailed value) getChatFailed,
+    required TResult Function(_SendChatSuccess value) sendChatSuccess,
+    required TResult Function(_SendChatFailed value) sendChatFailed,
+    required TResult Function(_GetConversationSuccess value)
+        getConversationSuccess,
+    required TResult Function(_GetConversationFailed value)
+        getConversationFailed,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_LoadingSend value) loadingSend,
+    required TResult Function(_StartSpeechTextSuccess value)
+        startSpeechTextSuccess,
+    required TResult Function(_StopSpeechTextSuccess value)
+        stopSpeechTextSuccess,
+    required TResult Function(_ListeningSpeech value) listeningSpeech,
+    required TResult Function(_StopListeningSpeech value) stopListeningSpeech,
+    required TResult Function(_ListeningCompleted value) listeningCompleted,
+    required TResult Function(_InitialSpeechToTextSuccess value)
+        initSpeechToTextSuccess,
+    required TResult Function(_ChangeTextAnimationSuccess value)
+        changeTextAnimationSuccess,
+    required TResult Function(_ClearConversationSuccess value)
+        clearConversationSuccess,
+    required TResult Function(_UpdateTextSuccess value) updateTextSuccess,
+    required TResult Function(_AddEmptyChatState value) addEmptyChatState,
+    required TResult Function(_UpdateChatByNewTextState value)
+        updateChatByNewTextState,
+  }) {
+    return addEmptyChatState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_GetChatSuccess value)? getChatSuccess,
+    TResult? Function(_GetChatFailed value)? getChatFailed,
+    TResult? Function(_SendChatSuccess value)? sendChatSuccess,
+    TResult? Function(_SendChatFailed value)? sendChatFailed,
+    TResult? Function(_GetConversationSuccess value)? getConversationSuccess,
+    TResult? Function(_GetConversationFailed value)? getConversationFailed,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_LoadingSend value)? loadingSend,
+    TResult? Function(_StartSpeechTextSuccess value)? startSpeechTextSuccess,
+    TResult? Function(_StopSpeechTextSuccess value)? stopSpeechTextSuccess,
+    TResult? Function(_ListeningSpeech value)? listeningSpeech,
+    TResult? Function(_StopListeningSpeech value)? stopListeningSpeech,
+    TResult? Function(_ListeningCompleted value)? listeningCompleted,
+    TResult? Function(_InitialSpeechToTextSuccess value)?
+        initSpeechToTextSuccess,
+    TResult? Function(_ChangeTextAnimationSuccess value)?
+        changeTextAnimationSuccess,
+    TResult? Function(_ClearConversationSuccess value)?
+        clearConversationSuccess,
+    TResult? Function(_UpdateTextSuccess value)? updateTextSuccess,
+    TResult? Function(_AddEmptyChatState value)? addEmptyChatState,
+    TResult? Function(_UpdateChatByNewTextState value)?
+        updateChatByNewTextState,
+  }) {
+    return addEmptyChatState?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_GetChatSuccess value)? getChatSuccess,
+    TResult Function(_GetChatFailed value)? getChatFailed,
+    TResult Function(_SendChatSuccess value)? sendChatSuccess,
+    TResult Function(_SendChatFailed value)? sendChatFailed,
+    TResult Function(_GetConversationSuccess value)? getConversationSuccess,
+    TResult Function(_GetConversationFailed value)? getConversationFailed,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_LoadingSend value)? loadingSend,
+    TResult Function(_StartSpeechTextSuccess value)? startSpeechTextSuccess,
+    TResult Function(_StopSpeechTextSuccess value)? stopSpeechTextSuccess,
+    TResult Function(_ListeningSpeech value)? listeningSpeech,
+    TResult Function(_StopListeningSpeech value)? stopListeningSpeech,
+    TResult Function(_ListeningCompleted value)? listeningCompleted,
+    TResult Function(_InitialSpeechToTextSuccess value)?
+        initSpeechToTextSuccess,
+    TResult Function(_ChangeTextAnimationSuccess value)?
+        changeTextAnimationSuccess,
+    TResult Function(_ClearConversationSuccess value)? clearConversationSuccess,
+    TResult Function(_UpdateTextSuccess value)? updateTextSuccess,
+    TResult Function(_AddEmptyChatState value)? addEmptyChatState,
+    TResult Function(_UpdateChatByNewTextState value)? updateChatByNewTextState,
+    required TResult orElse(),
+  }) {
+    if (addEmptyChatState != null) {
+      return addEmptyChatState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddEmptyChatState extends ChatState {
+  const factory _AddEmptyChatState(
+      {required final ChatModalState data,
+      required final String message}) = _$AddEmptyChatStateImpl;
+  const _AddEmptyChatState._() : super._();
+
+  @override
+  ChatModalState get data;
+  String get message;
+  @override
+  @JsonKey(ignore: true)
+  _$$AddEmptyChatStateImplCopyWith<_$AddEmptyChatStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateChatByNewTextStateImplCopyWith<$Res>
+    implements $ChatStateCopyWith<$Res> {
+  factory _$$UpdateChatByNewTextStateImplCopyWith(
+          _$UpdateChatByNewTextStateImpl value,
+          $Res Function(_$UpdateChatByNewTextStateImpl) then) =
+      __$$UpdateChatByNewTextStateImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({ChatModalState data});
+
+  @override
+  $ChatModalStateCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$UpdateChatByNewTextStateImplCopyWithImpl<$Res>
+    extends _$ChatStateCopyWithImpl<$Res, _$UpdateChatByNewTextStateImpl>
+    implements _$$UpdateChatByNewTextStateImplCopyWith<$Res> {
+  __$$UpdateChatByNewTextStateImplCopyWithImpl(
+      _$UpdateChatByNewTextStateImpl _value,
+      $Res Function(_$UpdateChatByNewTextStateImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$UpdateChatByNewTextStateImpl(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as ChatModalState,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UpdateChatByNewTextStateImpl extends _UpdateChatByNewTextState {
+  const _$UpdateChatByNewTextStateImpl({required this.data}) : super._();
+
+  @override
+  final ChatModalState data;
+
+  @override
+  String toString() {
+    return 'ChatState.updateChatByNewTextState(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateChatByNewTextStateImpl &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateChatByNewTextStateImplCopyWith<_$UpdateChatByNewTextStateImpl>
+      get copyWith => __$$UpdateChatByNewTextStateImplCopyWithImpl<
+          _$UpdateChatByNewTextStateImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(ChatModalState data) initial,
+    required TResult Function(ChatModalState data) getChatSuccess,
+    required TResult Function(ChatModalState data, String message)
+        getChatFailed,
+    required TResult Function(ChatModalState data) sendChatSuccess,
+    required TResult Function(ChatModalState data, String message)
+        sendChatFailed,
+    required TResult Function(ChatModalState data) getConversationSuccess,
+    required TResult Function(ChatModalState data, String message)
+        getConversationFailed,
+    required TResult Function(ChatModalState data) loading,
+    required TResult Function(ChatModalState data) loadingSend,
+    required TResult Function(ChatModalState data) startSpeechTextSuccess,
+    required TResult Function(ChatModalState data) stopSpeechTextSuccess,
+    required TResult Function(ChatModalState data, String textResponse)
+        listeningSpeech,
+    required TResult Function(ChatModalState data) stopListeningSpeech,
+    required TResult Function(ChatModalState data) listeningCompleted,
+    required TResult Function(ChatModalState data) initSpeechToTextSuccess,
+    required TResult Function(ChatModalState data) changeTextAnimationSuccess,
+    required TResult Function(ChatModalState data) clearConversationSuccess,
+    required TResult Function(ChatModalState data, String textResponse)
+        updateTextSuccess,
+    required TResult Function(ChatModalState data, String message)
+        addEmptyChatState,
+    required TResult Function(ChatModalState data) updateChatByNewTextState,
+  }) {
+    return updateChatByNewTextState(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(ChatModalState data)? initial,
+    TResult? Function(ChatModalState data)? getChatSuccess,
+    TResult? Function(ChatModalState data, String message)? getChatFailed,
+    TResult? Function(ChatModalState data)? sendChatSuccess,
+    TResult? Function(ChatModalState data, String message)? sendChatFailed,
+    TResult? Function(ChatModalState data)? getConversationSuccess,
+    TResult? Function(ChatModalState data, String message)?
+        getConversationFailed,
+    TResult? Function(ChatModalState data)? loading,
+    TResult? Function(ChatModalState data)? loadingSend,
+    TResult? Function(ChatModalState data)? startSpeechTextSuccess,
+    TResult? Function(ChatModalState data)? stopSpeechTextSuccess,
+    TResult? Function(ChatModalState data, String textResponse)?
+        listeningSpeech,
+    TResult? Function(ChatModalState data)? stopListeningSpeech,
+    TResult? Function(ChatModalState data)? listeningCompleted,
+    TResult? Function(ChatModalState data)? initSpeechToTextSuccess,
+    TResult? Function(ChatModalState data)? changeTextAnimationSuccess,
+    TResult? Function(ChatModalState data)? clearConversationSuccess,
+    TResult? Function(ChatModalState data, String textResponse)?
+        updateTextSuccess,
+    TResult? Function(ChatModalState data, String message)? addEmptyChatState,
+    TResult? Function(ChatModalState data)? updateChatByNewTextState,
+  }) {
+    return updateChatByNewTextState?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ChatModalState data)? initial,
+    TResult Function(ChatModalState data)? getChatSuccess,
+    TResult Function(ChatModalState data, String message)? getChatFailed,
+    TResult Function(ChatModalState data)? sendChatSuccess,
+    TResult Function(ChatModalState data, String message)? sendChatFailed,
+    TResult Function(ChatModalState data)? getConversationSuccess,
+    TResult Function(ChatModalState data, String message)?
+        getConversationFailed,
+    TResult Function(ChatModalState data)? loading,
+    TResult Function(ChatModalState data)? loadingSend,
+    TResult Function(ChatModalState data)? startSpeechTextSuccess,
+    TResult Function(ChatModalState data)? stopSpeechTextSuccess,
+    TResult Function(ChatModalState data, String textResponse)? listeningSpeech,
+    TResult Function(ChatModalState data)? stopListeningSpeech,
+    TResult Function(ChatModalState data)? listeningCompleted,
+    TResult Function(ChatModalState data)? initSpeechToTextSuccess,
+    TResult Function(ChatModalState data)? changeTextAnimationSuccess,
+    TResult Function(ChatModalState data)? clearConversationSuccess,
+    TResult Function(ChatModalState data, String textResponse)?
+        updateTextSuccess,
+    TResult Function(ChatModalState data, String message)? addEmptyChatState,
+    TResult Function(ChatModalState data)? updateChatByNewTextState,
+    required TResult orElse(),
+  }) {
+    if (updateChatByNewTextState != null) {
+      return updateChatByNewTextState(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_GetChatSuccess value) getChatSuccess,
+    required TResult Function(_GetChatFailed value) getChatFailed,
+    required TResult Function(_SendChatSuccess value) sendChatSuccess,
+    required TResult Function(_SendChatFailed value) sendChatFailed,
+    required TResult Function(_GetConversationSuccess value)
+        getConversationSuccess,
+    required TResult Function(_GetConversationFailed value)
+        getConversationFailed,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_LoadingSend value) loadingSend,
+    required TResult Function(_StartSpeechTextSuccess value)
+        startSpeechTextSuccess,
+    required TResult Function(_StopSpeechTextSuccess value)
+        stopSpeechTextSuccess,
+    required TResult Function(_ListeningSpeech value) listeningSpeech,
+    required TResult Function(_StopListeningSpeech value) stopListeningSpeech,
+    required TResult Function(_ListeningCompleted value) listeningCompleted,
+    required TResult Function(_InitialSpeechToTextSuccess value)
+        initSpeechToTextSuccess,
+    required TResult Function(_ChangeTextAnimationSuccess value)
+        changeTextAnimationSuccess,
+    required TResult Function(_ClearConversationSuccess value)
+        clearConversationSuccess,
+    required TResult Function(_UpdateTextSuccess value) updateTextSuccess,
+    required TResult Function(_AddEmptyChatState value) addEmptyChatState,
+    required TResult Function(_UpdateChatByNewTextState value)
+        updateChatByNewTextState,
+  }) {
+    return updateChatByNewTextState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_GetChatSuccess value)? getChatSuccess,
+    TResult? Function(_GetChatFailed value)? getChatFailed,
+    TResult? Function(_SendChatSuccess value)? sendChatSuccess,
+    TResult? Function(_SendChatFailed value)? sendChatFailed,
+    TResult? Function(_GetConversationSuccess value)? getConversationSuccess,
+    TResult? Function(_GetConversationFailed value)? getConversationFailed,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_LoadingSend value)? loadingSend,
+    TResult? Function(_StartSpeechTextSuccess value)? startSpeechTextSuccess,
+    TResult? Function(_StopSpeechTextSuccess value)? stopSpeechTextSuccess,
+    TResult? Function(_ListeningSpeech value)? listeningSpeech,
+    TResult? Function(_StopListeningSpeech value)? stopListeningSpeech,
+    TResult? Function(_ListeningCompleted value)? listeningCompleted,
+    TResult? Function(_InitialSpeechToTextSuccess value)?
+        initSpeechToTextSuccess,
+    TResult? Function(_ChangeTextAnimationSuccess value)?
+        changeTextAnimationSuccess,
+    TResult? Function(_ClearConversationSuccess value)?
+        clearConversationSuccess,
+    TResult? Function(_UpdateTextSuccess value)? updateTextSuccess,
+    TResult? Function(_AddEmptyChatState value)? addEmptyChatState,
+    TResult? Function(_UpdateChatByNewTextState value)?
+        updateChatByNewTextState,
+  }) {
+    return updateChatByNewTextState?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_GetChatSuccess value)? getChatSuccess,
+    TResult Function(_GetChatFailed value)? getChatFailed,
+    TResult Function(_SendChatSuccess value)? sendChatSuccess,
+    TResult Function(_SendChatFailed value)? sendChatFailed,
+    TResult Function(_GetConversationSuccess value)? getConversationSuccess,
+    TResult Function(_GetConversationFailed value)? getConversationFailed,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_LoadingSend value)? loadingSend,
+    TResult Function(_StartSpeechTextSuccess value)? startSpeechTextSuccess,
+    TResult Function(_StopSpeechTextSuccess value)? stopSpeechTextSuccess,
+    TResult Function(_ListeningSpeech value)? listeningSpeech,
+    TResult Function(_StopListeningSpeech value)? stopListeningSpeech,
+    TResult Function(_ListeningCompleted value)? listeningCompleted,
+    TResult Function(_InitialSpeechToTextSuccess value)?
+        initSpeechToTextSuccess,
+    TResult Function(_ChangeTextAnimationSuccess value)?
+        changeTextAnimationSuccess,
+    TResult Function(_ClearConversationSuccess value)? clearConversationSuccess,
+    TResult Function(_UpdateTextSuccess value)? updateTextSuccess,
+    TResult Function(_AddEmptyChatState value)? addEmptyChatState,
+    TResult Function(_UpdateChatByNewTextState value)? updateChatByNewTextState,
+    required TResult orElse(),
+  }) {
+    if (updateChatByNewTextState != null) {
+      return updateChatByNewTextState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateChatByNewTextState extends ChatState {
+  const factory _UpdateChatByNewTextState(
+      {required final ChatModalState data}) = _$UpdateChatByNewTextStateImpl;
+  const _UpdateChatByNewTextState._() : super._();
+
+  @override
+  ChatModalState get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$UpdateChatByNewTextStateImplCopyWith<_$UpdateChatByNewTextStateImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

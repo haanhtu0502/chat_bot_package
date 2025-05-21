@@ -105,7 +105,6 @@ class StreamApiService<T> {
           }
         }
       },
-      onError: _cancelStream,
     );
   }
 

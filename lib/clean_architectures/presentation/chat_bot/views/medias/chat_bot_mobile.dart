@@ -1,5 +1,4 @@
 import 'package:chat_bot_package/app_coordinator.dart';
-// import 'package:chat_bot_package/clean_architectures/data/data_source/remote/thread_api.dart';
 import 'package:chat_bot_package/clean_architectures/domain/entities/chat/chat.dart';
 import 'package:chat_bot_package/clean_architectures/domain/entities/chat/chat_status.dart';
 import 'package:chat_bot_package/clean_architectures/domain/entities/chat/chat_type.dart';
@@ -15,11 +14,14 @@ import 'package:chat_bot_package/clean_architectures/presentation/chat_bot/views
 import 'package:chat_bot_package/clean_architectures/presentation/chat_bot/views/widgets/message_item.dart';
 import 'package:chat_bot_package/clean_architectures/presentation/conversation/bloc/conversation_bloc.dart';
 import 'package:chat_bot_package/clean_architectures/presentation/conversation/views/conversation_view.dart';
+import 'package:chat_bot_package/core/components/configurations/open_ai_api_config.dart';
 import 'package:chat_bot_package/core/components/constant/image_const.dart';
 import 'package:chat_bot_package/core/components/extensions/context_extensions.dart';
 import 'package:chat_bot_package/core/components/extensions/string_extensions.dart';
 import 'package:chat_bot_package/core/components/widgets/loading_page.dart';
 import 'package:chat_bot_package/core/design_systems/theme_colors.dart';
+import 'package:chat_bot_package/core/services/open_ai_service.dart';
+import 'package:chat_bot_package/core/services/stream/stream_mixin.dart';
 import 'package:chat_bot_package/localization/chat_bot_localizations.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -55,7 +57,8 @@ class ChatBotMobile extends StatefulWidget {
   State<ChatBotMobile> createState() => _ChatBotMobileState();
 }
 
-class _ChatBotMobileState extends State<ChatBotMobile> {
+class _ChatBotMobileState extends State<ChatBotMobile>
+    with StreamMixin, OpenAiService {
   final ValueNotifier<bool> _enableSendButton = ValueNotifier(false);
   ChatBloc get _bloc => context.read<ChatBloc>();
 
@@ -73,6 +76,18 @@ class _ChatBotMobileState extends State<ChatBotMobile> {
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
+  ChatBotConfig get _chatConfig => ChatBotConfig();
+
+  ///Open Ai service
+  @override
+  String get apiKey => _chatConfig.getApiKey;
+
+  @override
+  String get assistantId => _chatConfig.getAssistantId;
+
+  @override
+  String get threadId => _conversation?.threadId ?? "";
+
   void _pop() {
     if (_chats.isNotEmpty) {
       context.popArgs(
@@ -86,8 +101,10 @@ class _ChatBotMobileState extends State<ChatBotMobile> {
   }
 
   @override
-  void dispose() {
-    super.dispose();
+  void sendChatCompleted(String? newContent, String? chatId) {
+    if (chatId != null) {
+      _bloc.add(ChatEvent.updateChatByNewText(newContent ?? "", chatId));
+    }
   }
 
   @override
@@ -96,30 +113,57 @@ class _ChatBotMobileState extends State<ChatBotMobile> {
     ChatBotLocalizations.loadTranslations().then((_) {
       setState(() {});
     });
+    if (_chatConfig.isStreamResponse) {
+      initService();
+    }
+  }
+
+  void _onSendMessage() {
+    if (_chatConfig.isStreamResponse) {
+      if (!isStreamWorking) {
+        _bloc.add(ChatEvent.addEmptyChat(widget.textController.text));
+      }
+    } else {
+      _enableSendButton.value = false;
+
+      _bloc.add(ChatEvent.sendChat(widget.textController.text));
+    }
+    widget.textController.clear();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: BlocConsumer<ChatBloc, ChatState>(
-          listener: widget.listenChatState,
-          builder: (context, state) {
-            return Stack(
-              children: [
-                _body(context, state: state),
-                if (state.loading)
-                  Container(
-                    color: Colors.black45,
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height,
-                    child: Center(
-                      child: StyleLoadingWidget.foldingCube.renderWidget(
-                          size: 40.0, color: Theme.of(context).primaryColor),
-                    ),
-                  )
-              ],
-            );
-          }),
+      child: BlocConsumer<ChatBloc, ChatState>(listener: (_, state) {
+        widget.listenChatState(_, state);
+        state.maybeWhen(
+          addEmptyChatState: (_, message) {
+            onSendMessage(message);
+          },
+          orElse: () {},
+        );
+      }, builder: (context, state) {
+        return Stack(
+          children: [
+            _body(context, state: state),
+            if (state.loading)
+              Container(
+                color: Colors.black45,
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
+                child: Center(
+                  child: StyleLoadingWidget.foldingCube.renderWidget(
+                      size: 40.0, color: Theme.of(context).primaryColor),
+                ),
+              )
+          ],
+        );
+      }),
     );
   }
 
@@ -188,17 +232,6 @@ class _ChatBotMobileState extends State<ChatBotMobile> {
             _chats.isEmpty
                 ? _chatContentNoHistory(context)
                 : _chatContentWithHistory(context),
-            // InputWidget(
-            //   textEditingController: widget.textController,
-            //   isListening: _state.listenSpeech,
-            //   borderRadius: 12,
-            //   onVoiceStart: () =>
-            //       _bloc.add(const ChatEvent.startListenSpeech()),
-            //   onVoiceStop: () => _bloc.add(const ChatEvent.stopListenSpeech()),
-            //   micAvailable: _micAvailable,
-            //   onSubmitted: () =>
-            //       _bloc.add(ChatEvent.sendChat(widget.textController.text)),
-            // )
             _buildChatBox(context),
           ] else ...[
             Expanded(
@@ -237,20 +270,44 @@ class _ChatBotMobileState extends State<ChatBotMobile> {
         itemCount: _chats.length,
         itemBuilder: (_, index) {
           final chat = _chats[index];
-          return MessageItem(
-            content: chat.title,
-            loading: chat.chatStatus.isLoading,
-            time: chat.createdAt,
-            isBot: chat.chatType.isAssistant,
-            isErrorMessage: chat.chatStatus.isError,
-            speechOnPress: () => widget.handleSpeechText(chat),
-            longPressText: () {},
-            isAnimatedText: _data.textAnimation && index == 0,
-            textAnimationCompleted: () =>
-                _bloc.add(const ChatEvent.changeTextAnimation(false)),
-          );
+          if (_chatConfig.isStreamResponse && (index == _chats.length - 1)) {
+            return buildTextResponseWidget(
+                (responseText, isLoadingStream, isStreamWorking) {
+              return _messageItem(
+                context,
+                chat: chat,
+                isLoadingStream: isLoadingStream,
+                isStreamWorking: isStreamWorking,
+                streamTextResponse: responseText,
+              );
+            });
+          }
+          return _messageItem(context, chat: chat);
         },
       ),
+    );
+  }
+
+  Widget _messageItem(
+    BuildContext context, {
+    required Chat chat,
+    bool? isLoadingStream,
+    bool? isStreamWorking,
+    String? streamTextResponse,
+  }) {
+    return MessageItem(
+      content: chat.title,
+      loading: isLoadingStream ?? chat.chatStatus.isLoading,
+      time: chat.createdAt,
+      isBot: chat.chatType.isAssistant,
+      isErrorMessage: chat.chatStatus.isError,
+      speechOnPress: () => widget.handleSpeechText(chat),
+      longPressText: () {},
+      isAnimatedText: false,
+      textAnimationCompleted: () =>
+          _bloc.add(const ChatEvent.changeTextAnimation(false)),
+      isStreamWorking: isStreamWorking,
+      streamTextResponse: streamTextResponse,
     );
   }
 
@@ -337,10 +394,7 @@ class _ChatBotMobileState extends State<ChatBotMobile> {
                 _enableSendButton.value = value.isNotEmpty;
               },
               onSubmitted: (value) {
-                _enableSendButton.value = false;
-
-                _bloc.add(ChatEvent.sendChat(widget.textController.text));
-                widget.textController.clear();
+                _onSendMessage();
               },
               controller: widget.textController,
               decoration: InputDecoration(
@@ -370,10 +424,7 @@ class _ChatBotMobileState extends State<ChatBotMobile> {
                     return BuildIconButton(
                       onTap: () {
                         if (!_enableSendButton.value) return;
-                        _enableSendButton.value = false;
-                        _bloc.add(
-                            ChatEvent.sendChat(widget.textController.text));
-                        widget.textController.clear();
+                        _onSendMessage();
                       },
                       assetIcon: ImageConst.sendIcon,
                       isActive: _enableSendButton.value,
