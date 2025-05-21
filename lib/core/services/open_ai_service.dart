@@ -9,41 +9,30 @@ import '../../clean_architectures/data/data_source/remote/utils/data_state.dart'
 import '../components/helpers/api_call_helper.dart';
 
 class ChatBotUiData {
-  final String responseText;
-
   final bool isLoading;
 
   final bool isStreamWorking;
 
   ChatBotUiData({
-    required this.responseText,
     required this.isLoading,
     required this.isStreamWorking,
   });
 
   factory ChatBotUiData.initial() {
     return ChatBotUiData(
-      responseText: "",
       isLoading: false,
       isStreamWorking: false,
     );
   }
 
   ChatBotUiData copyWith({
-    String? responseText,
     bool? isLoading,
     bool? isStreamWorking,
   }) {
     return ChatBotUiData(
-      responseText: responseText ?? this.responseText,
       isLoading: isLoading ?? this.isLoading,
       isStreamWorking: isStreamWorking ?? this.isStreamWorking,
     );
-  }
-
-  ///Clear response text
-  ChatBotUiData clearResponseText() {
-    return copyWith(responseText: "");
   }
 
   ///Set loading state
@@ -73,6 +62,8 @@ mixin OpenAiService<T extends StatefulWidget> on State<T> {
   final ValueNotifier<ChatBotUiData> _chatBotData =
       ValueNotifier<ChatBotUiData>(ChatBotUiData.initial());
 
+  final ValueNotifier<String> textResponse = ValueNotifier<String>("");
+
   bool get isStreamWorking => _chatBotData.value.isStreamWorking;
 
   /// Internal stream service that manages SSE (Server-Sent Events) from OpenAI.
@@ -83,11 +74,10 @@ mixin OpenAiService<T extends StatefulWidget> on State<T> {
 
   /// Called when new data is received from the stream.
   /// Updates the UI with incoming content and turns off the loading state.
-  void _onListenDataChange(data) {
-    _chatBotData.value = _chatBotData.value.copyWith(
-      responseText: _chatBotData.value.responseText + data,
-      isLoading: false,
-    );
+  void _onListenDataChange(String data) {
+    print("✨ Data: $data");
+    textResponse.value += data;
+    _chatBotData.value = _chatBotData.value.setLoading(false);
   }
 
   void _onDone() async {
@@ -162,19 +152,16 @@ mixin OpenAiService<T extends StatefulWidget> on State<T> {
   void onSendMessage(String message) async {
     if (_chatBotData.value.isStreamWorking) return;
     _chatBotData.value = _chatBotData.value.copyWith(
-      responseText: "",
       isLoading: true,
       isStreamWorking: true,
     );
+    textResponse.value = "";
 
     final result = await _messagesApi(message);
 
     if (result) {
       _streamApiService.onPostStream(
-        queryParameters: {
-          "stream": true,
-          "assistant_id": assistantId,
-        },
+        queryParameters: {"stream": true, "assistant_id": assistantId},
       );
     } else {
       _chatBotData.value = _chatBotData.value.copyWith(
@@ -185,15 +172,11 @@ mixin OpenAiService<T extends StatefulWidget> on State<T> {
   }
 
   /// Build widget
-  Widget buildTextResponseWidget(Widget Function(String, bool, bool) child) {
+  Widget buildTextResponseWidget(Widget Function(bool, bool) child) {
     return ValueListenableBuilder<ChatBotUiData>(
       valueListenable: _chatBotData,
       builder: (context, data, _) {
-        return child(
-          data.responseText,
-          data.isLoading,
-          data.isStreamWorking,
-        );
+        return child(data.isLoading, data.isStreamWorking);
       },
     );
   }

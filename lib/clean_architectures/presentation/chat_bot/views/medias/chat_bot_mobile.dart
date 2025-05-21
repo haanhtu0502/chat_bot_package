@@ -268,14 +268,16 @@ class _ChatBotMobileState extends State<ChatBotMobile> with OpenAiService {
         itemBuilder: (_, index) {
           final chat = _chats[index];
           if (_chatConfig.isStreamResponse && (index == _chats.length - 1)) {
-            return buildTextResponseWidget(
-                (responseText, isLoadingStream, isStreamWorking) {
-              return _messageItem(
-                context,
-                chat: chat,
-                isLoadingStream: false,
-                isStreamWorking: isStreamWorking,
-                streamTextResponse: responseText,
+            return buildTextResponseWidget((isLoadingStream, isStreamWorking) {
+              return ValueListenableBuilder(
+                valueListenable: textResponse,
+                builder: (_, streamTextResponse, __) {
+                  return _messageItem(context,
+                      chat: chat,
+                      isLoadingStream: isLoadingStream,
+                      isStreamWorking: isStreamWorking,
+                      streamTextResponse: streamTextResponse);
+                },
               );
             });
           }
