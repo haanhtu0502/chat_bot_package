@@ -18,7 +18,12 @@ Future<void> initChatBotConfig({
   String? model,
   String? turboModel,
   bool streamResponse = false,
+
+  ///Run text display
   bool runTextDisplay = false,
+
+  /// Milliseconds
+  int durations = 10,
 }) async {
   Configurations().setConfigurationValues(environmentProd);
   ChatBotConfig().setConfig(
@@ -28,6 +33,7 @@ Future<void> initChatBotConfig({
     turboModel: turboModel ?? "gpt-3.5-turbo",
     isStreamResponse: streamResponse,
     runTextDisplay: runTextDisplay,
+    durations: durations,
   );
   await initHiveBoxes();
   await configureDependencies(environment: Environment.prod);

@@ -316,6 +316,7 @@ class _ChatBotMobileState extends State<ChatBotMobile>
       speechOnPress: () => widget.handleSpeechText(chat),
       longPressText: () {},
       isAnimatedText: isAnimatedTex,
+      durations: _chatConfig.getDurations,
       textAnimationCompleted: () =>
           _bloc.add(const ChatEvent.changeTextAnimation(false)),
       isStreamWorking: isStreamWorking,

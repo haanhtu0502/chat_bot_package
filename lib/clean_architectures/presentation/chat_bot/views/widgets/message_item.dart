@@ -25,6 +25,8 @@ class MessageItem extends StatefulWidget {
   final String? streamTextResponse;
   final bool? isStreamWorking;
 
+  final int durations;
+
   const MessageItem({
     super.key,
     this.streamTextResponse,
@@ -33,6 +35,7 @@ class MessageItem extends StatefulWidget {
     this.isErrorMessage = false,
     this.isSpeechText = false,
     this.isAnimatedText = false,
+    this.durations = 10,
     required this.isBot,
     required this.content,
     required this.time,
@@ -121,8 +124,8 @@ class _MessageItemState extends State<MessageItem> {
                                         TypewriterAnimatedText(
                                           widget.content,
                                           textStyle: style,
-                                          speed:
-                                              const Duration(milliseconds: 60),
+                                          speed: Duration(
+                                              milliseconds: widget.durations),
                                         ),
                                       ],
                                       onFinished: widget.textAnimationCompleted,

@@ -11,7 +11,10 @@ class ChatBotConfig {
   String _turboModel = "gpt-3.5-turbo";
 
   bool _isStreamResponse = false; // This option don't support for web platform
+
+  /// Run text display
   bool _isRunTextDisplay = false;
+  int _durations = 10;
 
   void setConfig({
     required String apiKey,
@@ -20,16 +23,19 @@ class ChatBotConfig {
     String? model,
     String? turboModel,
     bool runTextDisplay = false,
+    int durations = 10,
   }) {
     _apiKey = apiKey;
     _assistantId = assistantId;
     _isStreamResponse = isStreamResponse;
     _isRunTextDisplay = runTextDisplay;
+    _durations = durations;
     if (model != null) _model = model;
     if (turboModel != null) _turboModel = turboModel;
   }
 
   // getter
+  int get getDurations => _durations;
   bool get isRunTextDisplay => _isRunTextDisplay;
   bool get isStreamResponse => _isStreamResponse;
   String get getApiKey => _apiKey;
