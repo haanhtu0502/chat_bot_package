@@ -113,7 +113,7 @@ mixin OpenAiService<T extends StatefulWidget> on State<T>, StreamMixin<T> {
   /// Sets up headers and defines how to extract text from the SSE delta payload.
   void initService() {
     _streamApiService = StreamApiService<String>(
-      url: "/threads/$assistantId/runs",
+      url: "/threads/$threadId/runs",
       eventGet: 'delta',
       streamMixin: this,
       configDio: ConfigDio(
