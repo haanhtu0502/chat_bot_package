@@ -149,7 +149,7 @@ mixin OpenAiService<T extends StatefulWidget> on State<T> {
 
   /// Public method to send a message and handle the OpenAI streaming response.
   /// If the message is sent successfully, it triggers the stream listener.
-  void onSendMessage(String message) async {
+  void onSendMessage(String message, {String? newThreadId}) async {
     if (_chatBotData.value.isStreamWorking) return;
     _chatBotData.value = _chatBotData.value.copyWith(
       isLoading: true,
@@ -161,6 +161,7 @@ mixin OpenAiService<T extends StatefulWidget> on State<T> {
 
     if (result) {
       _streamApiService.onPostStream(
+        url: "/threads/${newThreadId ?? threadId}/runs",
         queryParameters: {"stream": true, "assistant_id": assistantId},
       );
     } else {

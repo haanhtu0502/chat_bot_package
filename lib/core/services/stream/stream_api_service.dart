@@ -7,7 +7,6 @@ import '../../components/configurations/configurations.dart';
 import '../../components/network/api/base_api.dart';
 import '../../components/network/api/dio_api.dart';
 import '../../dependency_injection/di.dart';
-import 'stream_mixin.dart';
 
 const _kEventTag = "event";
 const _kDataTag = "data";
@@ -86,12 +85,15 @@ class StreamApiService<T> {
 
   /// Starts the SSE stream using a POST request.
   /// Listens for data and passes valid stream items to the mixin handler.
-  void onPostStream({Map<String, dynamic>? queryParameters}) {
+  void onPostStream({
+    String? url,
+    Map<String, dynamic>? queryParameters,
+  }) {
     if (_subscription != null) return;
 
     _subscription = _api
         .ssePostStream<T>(
-      url: _baseUrl + url,
+      url: _baseUrl + (url ?? this.url),
       request: queryParameters ?? this.queryParameters,
       onCancel: (_) {},
       onChange: _dataListHandler,

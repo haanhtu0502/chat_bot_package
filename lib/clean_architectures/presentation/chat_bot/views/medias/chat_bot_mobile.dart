@@ -142,7 +142,8 @@ class _ChatBotMobileState extends State<ChatBotMobile> with OpenAiService {
         widget.listenChatState(_, state);
         state.maybeWhen(
           addEmptyChatState: (_, message) {
-            onSendMessage(message);
+            onSendMessage(message,
+                newThreadId: state.data.conversation?.threadId);
           },
           orElse: () {},
         );
