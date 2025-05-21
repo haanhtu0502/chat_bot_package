@@ -274,7 +274,7 @@ class _ChatBotMobileState extends State<ChatBotMobile> with OpenAiService {
                 builder: (_, streamTextResponse, __) {
                   return _messageItem(context,
                       chat: chat,
-                      isLoadingStream: isLoadingStream,
+                      isLoadingStream: false,
                       isStreamWorking: isStreamWorking,
                       streamTextResponse: streamTextResponse);
                 },

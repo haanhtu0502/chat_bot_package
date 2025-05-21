@@ -176,10 +176,7 @@ class _MessageItemState extends State<MessageItem> {
           ),
         ),
         const SizedBox(width: 8.0),
-        Text(
-          "Ms.Sunny",
-          style: context.titleSmall.copyWith(fontSize: 12.0),
-        ),
+        Text("Ms.Sunny", style: context.titleSmall.copyWith(fontSize: 12.0)),
       ],
     );
   }
