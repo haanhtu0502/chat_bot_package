@@ -1,11 +1,9 @@
 import 'dart:io';
 
 import 'package:chat_bot_package/core/components/configurations/open_ai_api_config.dart';
-import 'package:chat_bot_package/core/components/constant/gpt_constant.dart';
 import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
 import 'package:flutter/foundation.dart';
-import 'package:chat_bot_package/clean_architectures/data/data_source/local/preferences.dart';
 
 class AppCoreFactory {
   static Dio createDio(String baseUrl) {
@@ -22,6 +20,7 @@ class AppCoreFactory {
       ..interceptors.add(TokenInterceptor())
       ..interceptors.add(LogInterceptor(requestBody: true, responseBody: true));
     if (!kIsWeb) {
+      // ignore: deprecated_member_use
       (dio.httpClientAdapter as IOHttpClientAdapter).onHttpClientCreate =
           (HttpClient client) {
         client.badCertificateCallback =
