@@ -85,13 +85,13 @@ class StreamApiService<T> {
 
   /// Starts the SSE stream using a POST request.
   /// Listens for data and passes valid stream items to the mixin handler.
-  void onPostStream() {
+  void onPostStream({Map<String, dynamic>? queryParameters}) {
     if (_subscription != null) return;
 
     _subscription = _api
         .ssePostStream<T>(
       url: _baseUrl + url,
-      request: queryParameters,
+      request: queryParameters ?? this.queryParameters,
       onCancel: (_) {},
       onChange: _dataListHandler,
       onSuccess: (_) => null,

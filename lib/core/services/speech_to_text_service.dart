@@ -31,7 +31,6 @@ class SpeechToTextService {
 
   void startSpeak(Function(String) callback) {
     speechToText.listen(
-      cancelOnError: true,
       listenFor: const Duration(seconds: 30), // Maximum to listen is 30s
       pauseFor: const Duration(seconds: 3), // Maximum if not detected is 5s
       localeId: _currentLocaleId,

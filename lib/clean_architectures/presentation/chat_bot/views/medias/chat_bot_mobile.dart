@@ -286,9 +286,7 @@ class _ChatBotMobileState extends State<ChatBotMobile> {
                 (e) => BuildDefaultQuestion(
                   question: e,
                   onTap: () {
-                    _bloc.add(
-                      ChatEvent.sendChat(e),
-                    );
+                    _bloc.add(ChatEvent.sendChat(e));
                   },
                 ),
               )
