@@ -190,11 +190,11 @@ mixin OpenAiService<T extends StatefulWidget> on State<T>, StreamMixin<T> {
   Widget buildTextResponseWidget(Widget Function(String, bool, bool) child) {
     return ValueListenableBuilder<ChatBotUiData>(
       valueListenable: _chatBotData,
-      builder: (context, loading, _) {
+      builder: (context, data, _) {
         return child(
-          loading.responseText,
-          loading.isLoading,
-          loading.isStreamWorking,
+          data.responseText,
+          data.isLoading,
+          data.isStreamWorking,
         );
       },
     );

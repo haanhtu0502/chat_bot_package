@@ -276,7 +276,7 @@ class _ChatBotMobileState extends State<ChatBotMobile>
               return _messageItem(
                 context,
                 chat: chat,
-                isLoadingStream: isLoadingStream,
+                isLoadingStream: false,
                 isStreamWorking: isStreamWorking,
                 streamTextResponse: responseText,
               );
