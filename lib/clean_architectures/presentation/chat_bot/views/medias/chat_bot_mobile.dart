@@ -24,6 +24,7 @@ import 'package:chat_bot_package/core/services/open_ai_service.dart';
 import 'package:chat_bot_package/core/services/stream/stream_mixin.dart';
 import 'package:chat_bot_package/localization/chat_bot_localizations.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -57,7 +58,8 @@ class ChatBotMobile extends StatefulWidget {
   State<ChatBotMobile> createState() => _ChatBotMobileState();
 }
 
-class _ChatBotMobileState extends State<ChatBotMobile> with OpenAiService {
+class _ChatBotMobileState extends State<ChatBotMobile>
+    with StreamMixin, OpenAiService {
   final ValueNotifier<bool> _enableSendButton = ValueNotifier(false);
   ChatBloc get _bloc => context.read<ChatBloc>();
 
@@ -76,6 +78,10 @@ class _ChatBotMobileState extends State<ChatBotMobile> with OpenAiService {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   ChatBotConfig get _chatConfig => ChatBotConfig();
+
+  bool get isStreamResposne => _chatConfig.isStreamResponse && !kIsWeb;
+
+  bool get isRunTextDisplay => _chatConfig.isRunTextDisplay;
 
   ///Open Ai service
   @override
@@ -112,13 +118,13 @@ class _ChatBotMobileState extends State<ChatBotMobile> with OpenAiService {
     ChatBotLocalizations.loadTranslations().then((_) {
       setState(() {});
     });
-    if (_chatConfig.isStreamResponse) {
+    if (isStreamResposne) {
       initService();
     }
   }
 
   void _onSendMessage() {
-    if (_chatConfig.isStreamResponse) {
+    if (isStreamResposne) {
       if (!isStreamWorking) {
         _bloc.add(ChatEvent.addEmptyChat(widget.textController.text));
       }
@@ -268,13 +274,17 @@ class _ChatBotMobileState extends State<ChatBotMobile> with OpenAiService {
         itemCount: _chats.length,
         itemBuilder: (_, index) {
           final chat = _chats[index];
-          if (_chatConfig.isStreamResponse && (index == _chats.length - 1)) {
+          final isAnimatedText = (isRunTextDisplay)
+              ? (index == _chats.length - 1 && _data.textAnimation)
+              : false;
+          if (isStreamResposne && (index == _chats.length - 1)) {
             return buildTextResponseWidget((isLoadingStream, isStreamWorking) {
               return ValueListenableBuilder(
                 valueListenable: textResponse,
                 builder: (_, streamTextResponse, __) {
                   return _messageItem(context,
                       chat: chat,
+                      isAnimatedTex: isAnimatedText,
                       isLoadingStream: false,
                       isStreamWorking: isStreamWorking,
                       streamTextResponse: streamTextResponse);
@@ -282,7 +292,8 @@ class _ChatBotMobileState extends State<ChatBotMobile> with OpenAiService {
               );
             });
           }
-          return _messageItem(context, chat: chat);
+          return _messageItem(context,
+              chat: chat, isAnimatedTex: isAnimatedText);
         },
       ),
     );
@@ -291,6 +302,7 @@ class _ChatBotMobileState extends State<ChatBotMobile> with OpenAiService {
   Widget _messageItem(
     BuildContext context, {
     required Chat chat,
+    required bool isAnimatedTex,
     bool? isLoadingStream,
     bool? isStreamWorking,
     String? streamTextResponse,
@@ -303,7 +315,7 @@ class _ChatBotMobileState extends State<ChatBotMobile> with OpenAiService {
       isErrorMessage: chat.chatStatus.isError,
       speechOnPress: () => widget.handleSpeechText(chat),
       longPressText: () {},
-      isAnimatedText: false,
+      isAnimatedText: isAnimatedTex,
       textAnimationCompleted: () =>
           _bloc.add(const ChatEvent.changeTextAnimation(false)),
       isStreamWorking: isStreamWorking,

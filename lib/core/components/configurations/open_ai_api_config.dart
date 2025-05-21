@@ -10,7 +10,8 @@ class ChatBotConfig {
   String _model = "gpt-4o-mini";
   String _turboModel = "gpt-3.5-turbo";
 
-  bool _isStreamResponse = false;
+  bool _isStreamResponse = false; // This option don't support for web platform
+  bool _isRunTextDisplay = false;
 
   void setConfig({
     required String apiKey,
@@ -18,15 +19,18 @@ class ChatBotConfig {
     bool isStreamResponse = false,
     String? model,
     String? turboModel,
+    bool runTextDisplay = false,
   }) {
     _apiKey = apiKey;
     _assistantId = assistantId;
     _isStreamResponse = isStreamResponse;
+    _isRunTextDisplay = runTextDisplay;
     if (model != null) _model = model;
     if (turboModel != null) _turboModel = turboModel;
   }
 
   // getter
+  bool get isRunTextDisplay => _isRunTextDisplay;
   bool get isStreamResponse => _isStreamResponse;
   String get getApiKey => _apiKey;
   String get getAssistantId => _assistantId;

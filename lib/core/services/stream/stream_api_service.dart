@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:chat_bot_package/core/services/stream/stream_mixin.dart';
 import 'package:dio/dio.dart';
 
 import '../../components/configurations/configurations.dart';
@@ -25,9 +26,7 @@ class StreamApiService<T> {
   final ConfigDio? configDio;
   final T Function(Map<String, dynamic>) mappingData;
 
-  final Function(T)? onListenDataChange;
-  final Function()? onDone;
-
+  late final StreamMixin _mixin;
   late final BaseApi _api;
   late final String _baseUrl;
 
@@ -36,14 +35,14 @@ class StreamApiService<T> {
   /// Constructor to initialize the stream API service.
   /// Configures Dio client and sets up dependencies.
   StreamApiService({
-    this.onListenDataChange,
-    this.onDone,
+    required StreamMixin mixin,
     required this.url,
     required this.eventGet,
     required this.mappingData,
     this.queryParameters,
     this.configDio,
   }) {
+    _mixin = mixin;
     var dio = injector.isRegistered<Dio>() ? injector.get<Dio>() : Dio();
 
     if (configDio != null) {
@@ -104,7 +103,7 @@ class StreamApiService<T> {
       (streamResponse) {
         if (streamResponse?.isNotEmpty ?? false) {
           for (var element in streamResponse!) {
-            onListenDataChange?.call(element);
+            _mixin.onListenDataChange(element);
           }
         }
       },
@@ -116,6 +115,6 @@ class StreamApiService<T> {
   void _cancelStream(dynamic error) {
     _subscription?.cancel();
     _subscription = null;
-    onDone?.call();
+    _mixin.onDone();
   }
 }

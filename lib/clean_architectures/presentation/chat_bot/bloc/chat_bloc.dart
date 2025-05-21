@@ -279,6 +279,7 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
           message: left.message)),
       (right) => emit(_SendChatSuccess(
         data: data.copyWith(
+            textAnimation: true,
             chats: [...data.chats.sublist(0, data.chats.length - 1), right]),
       )),
     );
@@ -327,11 +328,16 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
     final newChat = [
       ...data.chats.sublist(0, data.chats.length - 1),
       data.chats.last.copyWith(
-          title: event.newContent,
-          chatStatus: ChatStatus.success,
-          id: event.chatId),
+        id: "0",
+        conversationId: data.conversation!.id.toString(),
+        title: event.newContent,
+        chatStatus: ChatStatus.success,
+      ),
     ];
-    await _chatUseCase.saveChat(data.conversation!.id, newChat.last);
+    await _chatUseCase.saveChat(
+      data.conversation!.id,
+      newChat.last,
+    );
     emit(_UpdateChatByNewTextState(data: data.copyWith(chats: newChat)));
   }
 }

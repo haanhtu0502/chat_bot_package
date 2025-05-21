@@ -18,6 +18,7 @@ Future<void> initChatBotConfig({
   String? model,
   String? turboModel,
   bool streamResponse = false,
+  bool runTextDisplay = false,
 }) async {
   Configurations().setConfigurationValues(environmentProd);
   ChatBotConfig().setConfig(
@@ -26,6 +27,7 @@ Future<void> initChatBotConfig({
     model: model ?? "gpt-4o-mini",
     turboModel: turboModel ?? "gpt-3.5-turbo",
     isStreamResponse: streamResponse,
+    runTextDisplay: runTextDisplay,
   );
   await initHiveBoxes();
   await configureDependencies(environment: Environment.prod);

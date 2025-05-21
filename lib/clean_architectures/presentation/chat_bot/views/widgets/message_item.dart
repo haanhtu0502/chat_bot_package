@@ -7,6 +7,7 @@ import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:chat_bot_package/core/components/constant/image_const.dart';
 import 'package:chat_bot_package/core/components/extensions/context_extensions.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 class MessageItem extends StatefulWidget {
   final bool isBot;
@@ -108,28 +109,44 @@ class _MessageItemState extends State<MessageItem> {
                         ),
                       )
                     : widget.isBot
-                        ? Column(
-                            children: [
-                              if ((widget.isStreamWorking ?? false) &&
-                                  (widget.streamTextResponse != null)) ...[
-                                Text(widget.streamTextResponse ?? "",
-                                    style: style),
-                              ] else
-                                Markdown(
-                                  selectable: true,
-                                  shrinkWrap: true,
-                                  padding: EdgeInsets.zero,
-                                  data: widget.content,
-                                  onTapLink: (text, href, title) {
-                                    // ignore: deprecated_member_use
-                                    href != null ? launch(href) : null;
-                                  },
-                                  styleSheet: MarkdownStyleSheet.fromTheme(
-                                          Theme.of(context))
-                                      .copyWith(p: style),
-                                ),
-                            ],
-                          )
+                        ? ((widget.isStreamWorking ?? false) &&
+                                (widget.streamTextResponse != null))
+                            ? Text(widget.streamTextResponse ?? "",
+                                style: style)
+                            : Column(
+                                children: [
+                                  if (widget.isAnimatedText) ...[
+                                    AnimatedTextKit(
+                                      animatedTexts: [
+                                        TypewriterAnimatedText(
+                                          widget.content,
+                                          textStyle: style,
+                                          speed:
+                                              const Duration(milliseconds: 60),
+                                        ),
+                                      ],
+                                      onFinished: widget.textAnimationCompleted,
+                                      isRepeatingAnimation: false,
+                                      pause: const Duration(milliseconds: 60),
+                                      displayFullTextOnTap: true,
+                                      stopPauseOnTap: true,
+                                    )
+                                  ] else
+                                    Markdown(
+                                      selectable: true,
+                                      shrinkWrap: true,
+                                      padding: EdgeInsets.zero,
+                                      data: widget.content,
+                                      onTapLink: (text, href, title) {
+                                        // ignore: deprecated_member_use
+                                        href != null ? launch(href) : null;
+                                      },
+                                      styleSheet: MarkdownStyleSheet.fromTheme(
+                                              Theme.of(context))
+                                          .copyWith(p: style),
+                                    ),
+                                ],
+                              )
                         : Text(widget.content, style: style),
               ),
             )
