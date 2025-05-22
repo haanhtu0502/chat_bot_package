@@ -1,4 +1,3 @@
-import 'package:chat_bot_package/app_coordinator.dart';
 import 'package:chat_bot_package/clean_architectures/domain/entities/chat/chat.dart';
 import 'package:chat_bot_package/clean_architectures/domain/entities/chat/chat_status.dart';
 import 'package:chat_bot_package/clean_architectures/domain/entities/chat/chat_type.dart';
@@ -6,7 +5,6 @@ import 'package:chat_bot_package/clean_architectures/domain/entities/conversatio
 import 'package:chat_bot_package/clean_architectures/presentation/chat_bot/bloc/chat_bloc.dart';
 import 'package:chat_bot_package/clean_architectures/presentation/chat_bot/bloc/chat_modal_state.dart';
 import 'package:chat_bot_package/clean_architectures/presentation/chat_bot/dummy/default_question_data.dart';
-import 'package:chat_bot_package/clean_architectures/presentation/chat_bot/views/chat_bot_view.dart';
 import 'package:chat_bot_package/clean_architectures/presentation/chat_bot/views/widgets/build_default_question.dart';
 import 'package:chat_bot_package/clean_architectures/presentation/chat_bot/views/widgets/build_icon_button.dart';
 import 'package:chat_bot_package/clean_architectures/presentation/chat_bot/views/widgets/gradient_text.dart';
@@ -83,6 +81,8 @@ class _ChatBotMobileState extends State<ChatBotMobile>
 
   bool get isRunTextDisplay => _chatConfig.isRunTextDisplay;
 
+  final ScrollController _scrollController = ScrollController();
+
   ///Open Ai service
   @override
   String get apiKey => _chatConfig.getApiKey;
@@ -92,18 +92,6 @@ class _ChatBotMobileState extends State<ChatBotMobile>
 
   @override
   String get threadId => _conversation?.threadId ?? "";
-
-  void _pop() {
-    if (_chats.isNotEmpty) {
-      context.popArgs(
-        MessageReturn(
-            title: _chats.last.title.toHeaderConversation,
-            lastMessage: _chats.first.title),
-      );
-    } else {
-      context.pop();
-    }
-  }
 
   @override
   void sendChatCompleted(String? newContent, String? chatId) {
@@ -133,11 +121,13 @@ class _ChatBotMobileState extends State<ChatBotMobile>
 
       _bloc.add(ChatEvent.sendChat(widget.textController.text));
     }
+    FocusScope.of(context).unfocus();
     widget.textController.clear();
   }
 
   @override
   void dispose() {
+    _scrollController.dispose();
     super.dispose();
   }
 
@@ -147,6 +137,12 @@ class _ChatBotMobileState extends State<ChatBotMobile>
       child: BlocConsumer<ChatBloc, ChatState>(listener: (_, state) {
         widget.listenChatState(_, state);
         state.maybeWhen(
+          getChatSuccess: (_) {
+            if (_chats.isNotEmpty) {
+              _scrollController
+                  .jumpTo(_scrollController.position.maxScrollExtent);
+            }
+          },
           addEmptyChatState: (_, message) {
             onSendMessage(message,
                 newThreadId: state.data.conversation?.threadId);
@@ -272,6 +268,7 @@ class _ChatBotMobileState extends State<ChatBotMobile>
       child: ListView.builder(
         reverse: false,
         itemCount: _chats.length,
+        controller: _scrollController,
         itemBuilder: (_, index) {
           final chat = _chats[index];
           final isAnimatedText = (isRunTextDisplay)
@@ -285,7 +282,7 @@ class _ChatBotMobileState extends State<ChatBotMobile>
                   return _messageItem(context,
                       chat: chat,
                       isAnimatedTex: isAnimatedText,
-                      isLoadingStream: false,
+                      isLoadingStream: isLoadingStream,
                       isStreamWorking: isStreamWorking,
                       streamTextResponse: streamTextResponse);
                 },
@@ -327,28 +324,32 @@ class _ChatBotMobileState extends State<ChatBotMobile>
   Widget _chatContentNoHistory(BuildContext context) {
     var listQuestion = widget.defaultQuestions ?? defaultQuestionData;
     return Expanded(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+      child: ListView(
         children: [
-          Image.asset(
-            ImageConst.chatBotPng,
-            fit: BoxFit.contain,
-          ),
-          const SizedBox(height: 8),
-          GradientText(
-            text:
-                '${ChatBotLocalizations.of(context, "hello")} ${widget.userName ?? ''}!',
-            style: context.titleLargeS20.copyWith(
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          const SizedBox(height: 12),
-          Text(
-            ChatBotLocalizations.of(context, "whatCanIHelpYou"),
-            style: context.titleLargeS20.copyWith(
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
-            ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Image.asset(
+                ImageConst.chatBotPng,
+                fit: BoxFit.contain,
+              ),
+              const SizedBox(height: 8),
+              GradientText(
+                text:
+                    '${ChatBotLocalizations.of(context, "hello")} ${widget.userName ?? ''}!',
+                style: context.titleLargeS20.copyWith(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 12),
+              Text(
+                ChatBotLocalizations.of(context, "whatCanIHelpYou"),
+                style: context.titleLargeS20.copyWith(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
           ),
           const SizedBox(height: 18),
           ...listQuestion
@@ -362,10 +363,7 @@ class _ChatBotMobileState extends State<ChatBotMobile>
               )
               .toList()
               .expand(
-                (element) => [
-                  element,
-                  const SizedBox(height: 8),
-                ],
+                (element) => [element, const SizedBox(height: 8)],
               ),
         ],
       ),
