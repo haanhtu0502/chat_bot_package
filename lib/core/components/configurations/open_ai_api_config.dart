@@ -34,6 +34,10 @@ class ChatBotConfig {
     if (turboModel != null) _turboModel = turboModel;
   }
 
+  void setApiKey(String apiKey) {
+    _apiKey = apiKey;
+  }
+
   // getter
   int get getDurations => _durations;
   bool get isRunTextDisplay => _isRunTextDisplay;
