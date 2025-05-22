@@ -402,28 +402,35 @@ class _ChatBotMobileState extends State<ChatBotMobile>
         ),
         child: Column(
           children: [
-            TextField(
-              onChanged: (value) {
-                _enableSendButton.value = value.isNotEmpty;
-              },
-              onSubmitted: (value) {
-                _onSendMessage();
-              },
-              controller: widget.textController,
-              decoration: InputDecoration(
-                  isDense: true,
-                  hintText: _state.listenSpeech
-                      ? ChatBotLocalizations.of(context, "listening")
-                      : ChatBotLocalizations.of(context, "askMsSunny"),
-                  border: InputBorder.none,
-                  hintStyle: context.titleMedium.copyWith(
-                    color: Theme.of(context).hintColor,
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                if (widget.isOneLineTextField) ...[_buildListenIcon(micIcon)],
+                Expanded(
+                  child: TextField(
+                    onChanged: (value) {
+                      _enableSendButton.value = value.isNotEmpty;
+                    },
+                    onSubmitted: (value) {
+                      _onSendMessage();
+                    },
+                    controller: widget.textController,
+                    decoration: InputDecoration(
+                      hintText: _state.listenSpeech
+                          ? ChatBotLocalizations.of(context, "listening")
+                          : ChatBotLocalizations.of(context, "askMsSunny"),
+                      border: InputBorder.none,
+                      hintStyle: context.titleMedium.copyWith(
+                        color: Theme.of(context).hintColor,
+                      ),
+                    ),
                   ),
-                  prefix: widget.isOneLineTextField
-                      ? _buildListenIcon(micIcon)
-                      : null,
-                  suffixIcon:
-                      widget.isOneLineTextField ? _buildSendWiget() : null),
+                ),
+                if (widget.isOneLineTextField) ...[
+                  const SizedBox(width: 8),
+                  _buildSendWiget(),
+                ]
+              ],
             ),
             if (!widget.isOneLineTextField)
               Row(
