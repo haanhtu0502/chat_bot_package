@@ -14,6 +14,7 @@ class ChatBotWrapper extends StatelessWidget {
     this.onClose,
     this.isShowBackButton = true,
     this.isShowMenuButton = true,
+    this.isOneLineTextField = false,
   });
 
   final String? userName;
@@ -22,6 +23,7 @@ class ChatBotWrapper extends StatelessWidget {
   final void Function()? onClose;
   final bool isShowBackButton;
   final bool isShowMenuButton;
+  final bool isOneLineTextField;
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +39,7 @@ class ChatBotWrapper extends StatelessWidget {
         onClose: onClose,
         isShowBackButton: isShowBackButton,
         isShowMenuButton: isShowMenuButton,
+        isOneLineTextField: isOneLineTextField,
       ),
     );
   }

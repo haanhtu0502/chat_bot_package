@@ -37,6 +37,7 @@ class ChatBotMobile extends StatefulWidget {
   final void Function()? onClose;
   final bool isShowBackButton;
   final bool isShowMenuButton;
+  final bool isOneLineTextField;
 
   const ChatBotMobile({
     super.key,
@@ -48,6 +49,7 @@ class ChatBotMobile extends StatefulWidget {
     this.defaultQuestions,
     this.closeIcon,
     this.onClose,
+    this.isOneLineTextField = false,
     this.isShowBackButton = true,
     this.isShowMenuButton = true,
   });
@@ -409,47 +411,58 @@ class _ChatBotMobileState extends State<ChatBotMobile>
               },
               controller: widget.textController,
               decoration: InputDecoration(
-                hintText: _state.listenSpeech
-                    ? ChatBotLocalizations.of(context, "listening")
-                    : ChatBotLocalizations.of(context, "askMsSunny"),
-                border: InputBorder.none,
-                hintStyle: context.titleMedium.copyWith(
-                  color: Theme.of(context).hintColor,
-                ),
-              ),
+                  isDense: true,
+                  hintText: _state.listenSpeech
+                      ? ChatBotLocalizations.of(context, "listening")
+                      : ChatBotLocalizations.of(context, "askMsSunny"),
+                  border: InputBorder.none,
+                  hintStyle: context.titleMedium.copyWith(
+                    color: Theme.of(context).hintColor,
+                  ),
+                  prefix: widget.isOneLineTextField
+                      ? _buildListenIcon(micIcon)
+                      : null,
+                  suffixIcon:
+                      widget.isOneLineTextField ? _buildSendWiget() : null),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                IconButton(
-                  onPressed: !_state.listenSpeech
-                      ? () => _bloc.add(const ChatEvent.startListenSpeech())
-                      : () => _bloc.add(const ChatEvent.stopListenSpeech()),
-                  icon: _state.listenSpeech
-                      ? const ListeningIcon()
-                      : Icon(micIcon, color: Theme.of(context).hintColor),
-                ),
-                ValueListenableBuilder(
-                  valueListenable: _enableSendButton,
-                  builder: (context, value, child) {
-                    return BuildIconButton(
-                      onTap: () {
-                        if (!_enableSendButton.value) return;
-                        _onSendMessage();
-                      },
-                      assetIcon: ImageConst.sendIcon,
-                      isActive: _enableSendButton.value,
-                      activeIconColor: Colors.white,
-                      activeBackgroundColor: AppColors.brightBlue.toColor(),
-                      inactiveIconColor: const Color.fromRGBO(187, 187, 187, 1),
-                    );
-                  },
-                ),
-              ],
-            )
+            if (!widget.isOneLineTextField)
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [_buildListenIcon(micIcon), _buildSendWiget()],
+              )
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildListenIcon(IconData micIcon) {
+    return IconButton(
+      onPressed: !_state.listenSpeech
+          ? () => _bloc.add(const ChatEvent.startListenSpeech())
+          : () => _bloc.add(const ChatEvent.stopListenSpeech()),
+      icon: _state.listenSpeech
+          ? const ListeningIcon()
+          : Icon(micIcon, color: Theme.of(context).hintColor),
+    );
+  }
+
+  Widget _buildSendWiget() {
+    return ValueListenableBuilder(
+      valueListenable: _enableSendButton,
+      builder: (context, value, child) {
+        return BuildIconButton(
+          onTap: () {
+            if (!_enableSendButton.value) return;
+            _onSendMessage();
+          },
+          assetIcon: ImageConst.sendIcon,
+          isActive: _enableSendButton.value,
+          activeIconColor: Colors.white,
+          activeBackgroundColor: AppColors.brightBlue.toColor(),
+          inactiveIconColor: const Color.fromRGBO(187, 187, 187, 1),
+        );
+      },
     );
   }
 }

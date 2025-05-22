@@ -31,6 +31,7 @@ class ChatBotView extends StatefulWidget {
     this.onClose,
     this.isShowBackButton = true,
     this.isShowMenuButton = true,
+    this.isOneLineTextField = false,
   });
 
   final String? userName;
@@ -39,6 +40,7 @@ class ChatBotView extends StatefulWidget {
   final void Function()? onClose;
   final bool isShowBackButton;
   final bool isShowMenuButton;
+  final bool isOneLineTextField;
 
   @override
   State<ChatBotView> createState() => _ChatBotViewState();
@@ -197,6 +199,7 @@ class _ChatBotViewState extends State<ChatBotView> {
       onClose: widget.onClose,
       isShowBackButton: widget.isShowBackButton,
       isShowMenuButton: widget.isShowMenuButton,
+      isOneLineTextField: widget.isOneLineTextField,
     );
   }
 }
